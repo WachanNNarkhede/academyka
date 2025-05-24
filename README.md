@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
-  <img src="https://media.tenor.com/YqOlyvO3sB4AAAAC/lucas-lucas-viana.gif" alt="Professional Haircut Animation" width="300"/>
+  <img src="https://media.giphy.com/media/JMwKaScqL7pznzu6qu/giphy.gif" alt="Professional Haircut Animation" width="300"/>
 </p>
 
 <p align="center">
