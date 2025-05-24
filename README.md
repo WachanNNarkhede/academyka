@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
-  <img src="https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif" alt="Beauty Sparkle Animation" width="300"/>
+  <img src="https://media.giphy.com/media/l0IylOPCNkiqOgMyA/giphy.gif" alt="Makeup Application Animation" width="300"/>
 </p>
 
 <p align="center">
