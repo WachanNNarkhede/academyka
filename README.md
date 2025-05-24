@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
-  <img src="https://media.giphy.com/media/JMwKaScqL7pznzu6qu/giphy.gif" alt="Professional Haircut Animation" width="300"/>
+  <img src="https://media.giphy.com/media/JMwKaScqL7pznzu6qu/giphy.gif" alt="Professional Haircut Animation" width="300" fallback="https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif"/>
 </p>
 
 <p align="center">
