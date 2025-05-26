@@ -12,59 +12,59 @@ export default function TestimonialsScroll() {
   // Testimonial data
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "Marketing Director",
-      company: "TechCorp Inc.",
+      name: "Amruta",
+      role: "Costumer",
+      company: "Krunal's Academy",
       image: "/placeholder.svg?height=80&width=80",
       quote:
-        "This product has completely transformed how our team collaborates. The intuitive interface and powerful features have boosted our productivity by 40%.",
+        "I did haircut for the very 1st time at acadmy, initially I was little scared that how my hair`s will get cut , if not than how, but the entire team is very good & trained they treat very well, friendly so no worries. I got the best hair cut.",
       rating: 5,
     },
     {
-      name: "Michael Chen",
-      role: "Senior Developer",
-      company: "InnovateSoft",
+      name: "SHUBHAM DANGAT",
+      role: "Student",
+      company: "Krunal's Academy",
       image: "/placeholder.svg?height=80&width=80",
       quote:
-        "As a developer, I appreciate the clean architecture and robust API. Integration was seamless, and the documentation is exceptional.",
+        "We have done nail art and extension in the academy the staff was so cooperative and the work was soo soo perfect I just feel like I have perfect nails and perfect art on it thanku so much krunals academy for this☺️☺️",
       rating: 5,
     },
     {
-      name: "Emily Rodriguez",
+      name: "Sayali",
       role: "Product Manager",
       company: "GrowthLabs",
       image: "/placeholder.svg?height=80&width=80",
       quote:
-        "We've tried many similar solutions, but this one stands out for its reliability and customer support. Our team adopted it within days.",
+        "I am so happy with a globel hair colour,hair cut thank youSagar Pawar hair dresser & thank you Krunal`s acadmy i love it.",
       rating: 4,
     },
     {
-      name: "David Williams",
-      role: "CEO",
-      company: "StartupVision",
+      name: "pooja dake",
+      role: "Costumer",
+      company: "Krunal's Academy",
       image: "/placeholder.svg?height=80&width=80",
       quote:
-        "This platform has been instrumental in our company's growth. The analytics features provide insights that have directly impacted our strategy.",
+        "I had a fantastic experience at krunal salon My stylist Vinayak he was incredibly attentive and really listened to what I wanted. He expertly cut my hair, and I`ve received so many compliments on my new style. I highly recommend this salon and stylist.",
       rating: 5,
     },
-    {
-      name: "Priya Patel",
-      role: "UX Designer",
-      company: "DesignForward",
-      image: "/placeholder.svg?height=80&width=80",
-      quote:
-        "The attention to detail in this product is remarkable. As a designer, I appreciate the thoughtful user experience and consistent interface.",
-      rating: 5,
-    },
-    {
-      name: "James Thompson",
-      role: "Operations Manager",
-      company: "LogisticsPro",
-      image: "/placeholder.svg?height=80&width=80",
-      quote:
-        "Implementation was quick and the ROI was evident within the first month. Our operational efficiency has improved significantly.",
-      rating: 4,
-    },
+    // {
+    //   name: "Priya Patel",
+    //   role: "UX Designer",
+    //   company: "DesignForward",
+    //   image: "/placeholder.svg?height=80&width=80",
+    //   quote:
+    //     "The attention to detail in this product is remarkable. As a designer, I appreciate the thoughtful user experience and consistent interface.",
+    //   rating: 5,
+    // },
+    // {
+    //   name: "James Thompson",
+    //   role: "Operations Manager",
+    //   company: "LogisticsPro",
+    //   image: "/placeholder.svg?height=80&width=80",
+    //   quote:
+    //     "Implementation was quick and the ROI was evident within the first month. Our operational efficiency has improved significantly.",
+    //   rating: 4,
+    // },
   ]
 
   return (
