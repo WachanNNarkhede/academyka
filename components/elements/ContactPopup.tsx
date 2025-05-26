@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -25,8 +25,11 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errors, setErrors] = useState<Record<string, string>>({});
+  
   const pathname = usePathname();
   const isControlledOpen = controlledIsOpen ?? false;
+  const hasBeenClosedForRouteRef = useRef<string | null>(null);
+  const initialRender = useRef(true);
 
   // Update image based on window width
   useEffect(() => {
@@ -42,47 +45,48 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
   }, []);
 
   // Handle popup open/close
-  const [hasBeenClosedForRoute, setHasBeenClosedForRoute] = useState<string | null>(null);
+  useEffect(() => {
+    if (isControlledOpen) {
+      setIsOpen(true);
+      setIsAnimatingOut(false);
+      hasBeenClosedForRouteRef.current = null;
+      return;
+    }
 
-// Handle popup open/close
-useEffect(() => {
-  if (isControlledOpen) {
-    setIsOpen(true);
-    setIsAnimatingOut(false);
-    setHasBeenClosedForRoute(null);
-    return;
-  }
+    // Skip the initial render in development (due to StrictMode)
+    if (initialRender.current) {
+      initialRender.current = false;
+      return;
+    }
 
-  // Only open if:
-  // 1. We have a pathname (not initial render)
-  // 2. User hasn't closed it for this specific route
-  if (pathname && hasBeenClosedForRoute !== pathname) {
-    setIsOpen(true);
-    setIsAnimatingOut(false);
-  }
-}, [pathname, isControlledOpen]);
+    if (pathname && hasBeenClosedForRouteRef.current !== pathname) {
+      setIsOpen(true);
+      setIsAnimatingOut(false);
+    }
+  }, [pathname, isControlledOpen]);
 
-const closePopup = () => {
-  setIsAnimatingOut(true);
-  // Remember we closed it for THIS route
-  setHasBeenClosedForRoute(pathname);
-  setTimeout(() => {
-    setIsOpen(false);
-    setIsAnimatingOut(false);
-    if (onClose) onClose();
-    // Reset form when closing
-    setSubmitStatus('idle');
-    setFormData({
-      name: '',
-      mobile: '',
-      email: '',
-      description: '',
-      terms: false,
-      newsletter: false
-    });
-    setErrors({});
-  }, 300);
-};
+  const closePopup = () => {
+    setIsAnimatingOut(true);
+    // Remember we closed it for THIS route
+    hasBeenClosedForRouteRef.current = pathname;
+    
+    setTimeout(() => {
+      setIsOpen(false);
+      setIsAnimatingOut(false);
+      if (onClose) onClose();
+      // Reset form when closing
+      setSubmitStatus('idle');
+      setFormData({
+        name: '',
+        mobile: '',
+        email: '',
+        description: '',
+        terms: false,
+        newsletter: false
+      });
+      setErrors({});
+    }, 300);
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target;
@@ -143,7 +147,6 @@ const closePopup = () => {
 
       if (response.ok) {
         setSubmitStatus('success');
-        // Reset form on successful submission
         setFormData({
           name: '',
           mobile: '',
