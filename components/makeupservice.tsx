@@ -81,8 +81,6 @@ const Makeupservice = () => {
         'Hair removal methods: honey waxing, Italian waxing, Brazilian, peel-off, and fruit waxing',
         'Advanced skin treatments: anti-acne, anti-aging, detan, brightening, and hydrating facials',
         'Mask therapies: thermoherb, rubber, biological, paraffin, setting & non-setting masks',
-        'Manicure and pedicure: basic, anti-tan, paraffin wax, and heel peel treatments',
-        'Body care: back massage, body polishing, and combined machine-based therapies',
       ],
     },
   ];

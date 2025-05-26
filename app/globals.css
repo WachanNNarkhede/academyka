@@ -406,13 +406,13 @@ body.hide-ui {
   scrollbar-color: var(--border) var(--black);
 }
 
-a {
+/* a {
   color: var(--accent);
 }
 
 :root {
   color-scheme: dark;
-}
+} */
 
 /* button {
   background: none;
@@ -433,12 +433,12 @@ li {
 
  
 
-h1 a {
+/* h1 a {
   display: flex;
   align-items: center;
   text-decoration: none;
   gap: 10px;
-}
+} */
 
 pre {
   color: var(--accent);

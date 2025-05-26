@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import FixedContactIcons from '@/components/elements/FixedContactIcons';
+import Footer from '@/components/footer';
 
 const ServicesPage: React.FC = () => {
   useEffect(() => {
@@ -43,7 +44,7 @@ const ServicesPage: React.FC = () => {
         'SMOOTHENING',
         'Straightening'
       ],
-      image: '/hair-service.jpg',
+      image: '/gallary/IMG_9465.jpg',
       description: 'Transform your hair with our expert services ranging from cuts to advanced treatments.'
     },
     {
@@ -58,7 +59,7 @@ const ServicesPage: React.FC = () => {
         'Manicure',
         'Pedicure'
       ],
-      image: '/skin-service.jpg',
+      image: '/images/skin.jpg',
       description: 'Reveal your most radiant skin with our professional skincare treatments.'
     },
     {
@@ -73,7 +74,7 @@ const ServicesPage: React.FC = () => {
         'Saree Draping',
         'Groom Make Up'
       ],
-      image: '/makeup-service.jpg',
+      image: '/images/four.jpg',
       description: 'Perfect your look for any occasion with our professional makeup services.'
     },
     {
@@ -87,7 +88,7 @@ const ServicesPage: React.FC = () => {
         'Gel polish removal',
         'Gel extensions removal'
       ],
-      image: '/nail-service.jpg',
+      image: '/images/nailsart.jpg',
       description: 'Express your style with our creative nail designs and treatments.'
     }
   ];
@@ -97,38 +98,38 @@ const ServicesPage: React.FC = () => {
       <FixedContactIcons />
 
       {/* Hero Section */}
-      <section className="relative h-[50vh]  sm:h-[70vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute  inset-0">
-          <Image
-            src="/beauty-services-hero.jpg"
-            alt="Beauty Academy Services"
-            fill
-            className="object-cover opacity-80"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#fff785]/80 to-[#e91e63]/80"></div>
-        </div>
-        <div className="relative mt-16 text-center px-4 max-w-6xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-white tracking-tight">
-            Professional Beauty Services
-          </h1>
-          <p className="text-xl md:text-2xl text-[#ffffff]/90 mb-10 max-w-3xl mx-auto">
-            Experience top-quality beauty treatments performed by our skilled professionals.
-          </p>
-        <motion.button
-  whileHover={{ scale: 1.05, backgroundColor: '#ff5c8d', color: '#ffffff' }}
-  whileTap={{ scale: 0.95 }}
-  className="bg-[#ff8ab5] text-[#ffffff] font-semibold py-3 px-8 rounded-full shadow-xl transition-all duration-300 text-sm md:text-base whitespace-nowrap"
-  onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
-  aria-label="Book Appointment"
-  data-aos="zoom-in"
-  data-aos-delay="300"
->
-  Book Your Appointment
-</motion.button>
-        </div>
-      </section>
-
+    <section className="relative h-[50vh] sm:h-[70vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
+  <div className="absolute inset-0">
+    <Image
+      src="/images/one.jpg"
+      alt="Beauty Academy Services"
+      fill
+      className="object-cover opacity-80"
+      priority
+    />
+  </div>
+  <div className="relative mt-10 mb-28 h-[50vh] text-center px-4 max-w-6xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+    {/* Blurred background only for text area */}
+    <div className="absolute inset-0 bg-black/30 backdrop-blur-sm rounded-3xl -z-10"></div>
+    <h1 className="text-4xl md:text-5xl mt-46 lg:mt-26 lg:text-6xl font-extrabold mb-6 text-white tracking-tight">
+      Professional Beauty Services
+    </h1>
+    <p className="text-xl md:text-2xl text-[#ffffff]/90 mb-10 max-w-3xl mx-auto">
+      Experience top-quality beauty treatments performed by our skilled professionals.
+    </p>
+    <motion.button
+      whileHover={{ scale: 1.05, backgroundColor: '#ff5c8d', color: '#ffffff' }}
+      whileTap={{ scale: 0.95 }}
+      className="bg-[#ff8ab5] text-[#ffffff] font-semibold py-3 px-8 rounded-full shadow-xl transition-all duration-300 text-sm md:text-base whitespace-nowrap"
+      onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
+      aria-label="Book Appointment"
+      data-aos="zoom-in"
+      data-aos-delay="300"
+    >
+      Book Your Appointment
+    </motion.button>
+  </div>
+</section>
       {/* Services Section */}
       <section className="py-36 px-4 sm:px-6 lg:px-8 bg-[#fff5f9] relative">
         <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-10 pointer-events-none"></div>
@@ -214,6 +215,7 @@ const ServicesPage: React.FC = () => {
           transform: none !important;
         }
       `}</style>
+        <Footer/>
     </div>
   );
 };

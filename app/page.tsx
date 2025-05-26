@@ -11,6 +11,11 @@ import Makeupservice from '@/components/makeupservice';
 import Testimonials from '@/components/testimonials';
 import Abouthome from '@/components/abouthome';
 import FixedContactIcons from '@/components/elements/FixedContactIcons';
+import ContactPopup from '@/components/elements/ContactPopup';
+import Footer from '@/components/footer';
+
+
+
 
 // Custom SVG components
 const ScissorsIcon = () => (
@@ -54,6 +59,8 @@ const CrownIcon: React.FC = () => (
 export default function Home() {
   const [counter, setCounter] = useState<number>(0);
   const [loadingComplete, setLoadingComplete] = useState<boolean>(false);
+  
+   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const [showContent, setShowContent] = useState<boolean>(false);
   const [showIcons, setShowIcons] = useState<boolean>(false);
   const loadingContainerRef = useRef<HTMLDivElement>(null);
@@ -222,6 +229,10 @@ export default function Home() {
             transition: 'opacity 500ms ease-out'
           }}
         >
+            <ContactPopup
+                  isOpen={isPopupOpen}
+                  onClose={() => setIsPopupOpen(false)}
+                />
           {/* Fixed Contact Icons - Only shown after a slight delay */}
           {showIcons && <FixedContactIcons />}
           
@@ -265,7 +276,9 @@ export default function Home() {
           <div data-aos="fade-up" data-aos-delay="500">
             <Testimonials/>
           </div>
+           <Footer/>
         </div>
+       
       )}
     </>
   );

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import FixedContactIcons from '@/components/elements/FixedContactIcons';
+import Footer from '@/components/footer';
 
 
 const AboutPage = () => {
@@ -18,81 +19,90 @@ const AboutPage = () => {
   }, []);
 
   const certificates = [
-    { id: 1, title: 'Best Hair Artist Award 2015', image: '/person1.jpg' },
-    { id: 2, title: 'Hair Avengers Award 2021', image: '/person1.jpg' },
-    { id: 3, title: 'CIDESCO Certification 2020', image: '/person1.jpg' },
-    { id: 4, title: 'VLCC Faculty Certification', image: '/person1.jpg' }
+    { id: 1, title: 'Best Hair Artist Award 2015', image: '/images/six.jpg' },
+    { id: 2, title: 'Hair Avengers Award 2021', image: '/images/six.jpg' },
+    { id: 3, title: 'CIDESCO Certification 2020', image: '/images/six.jpg' },
+    { id: 4, title: 'VLCC Faculty Certification', image: '/images/six.jpg' }
   ];
 
   return (
     <div className="bg-gradient-to-b from-pink-50 to-white min-h-screen text-gray-800  overflow-x-hidden">
       <FixedContactIcons/>
       {/* Hero Section */}
-     <section className="relative bg-gradient-to-b from-pink-200 to-white h-[35vh] sm:h-[50vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
-  <div className="absolute inset-0 z-0">
+<section className="relative bg-gradient-to-b from-pink-200 to-white h-[35vh] sm:h-[50vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
+  <div className="absolute inset-0">
     <Image 
-      src="/11.webp" 
+      src="/images/five.jpg" 
       alt="Academy Interior"
       fill
-      className="object-cover opacity-50"
+      className="object-cover"
       priority
     />
-    <div className="absolute inset-0 bg-gradient-to-r from-pink-100/80 to-white/80"></div>
   </div>
-  <div 
-    data-aos="fade-up"
-    className="relative  text-center px-4 sm:px-6"
-  >
-    <h1 className="text-[4.5vh] mt-16  sm:text-[8vh] md:text-[10vh] lg:text-[9vh] font-extrabold mb-4 sm:mb-6 text-pink-600 leading-tight tracking-tight">
-      ABOUT <span className="text-pink-400">KRUNAL&apos;S</span> ACADEMY
-    </h1>
-    
-    <div
-      data-aos="zoom-in"
-      data-aos-delay="300"
-      className="mt-6 sm:mt-10"
+  
+  {/* Blurred overlay container - only behind text */}
+  <div className="absolute inset-0 flex items-center justify-center">
+    <div 
+      className="relative w-full max-w-4xl px-4 py-8 sm:py-12 md:py-16"
+      data-aos="fade-up"
     >
-      <div className="w-16 sm:w-20 h-1 bg-pink-400 mx-auto"></div>
+      {/* Blurred background only for text area */}
+      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm rounded-3xl -z-10"></div>
+      
+      {/* Text content */}
+      <div className="relative text-center px-4 sm:px-6">
+        <h1 className="text-[4.5vh] mt-16 sm:text-[8vh] md:text-[10vh] lg:text-[9vh] font-bold mb-4 sm:mb-6 text-white leading-tight tracking-tight">
+          ABOUT KRUNAL&apos;S ACADEMY
+        </h1>
+        
+        <div
+          data-aos="zoom-in"
+          data-aos-delay="300"
+          className="mt-6 sm:mt-10"
+        >
+          <div className="w-16 sm:w-20 h-1 bg-pink-400 mx-auto"></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-
       {/* Academy Overview */}
-      <section className="py-20 px-4 pt-52   h-[70vh] md:h-[70vh] overflow-hidden sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div
-            data-aos="fade-up"
-            className="grid md:grid-cols-2 gap-12 items-center"
-          >
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-pink-600 -mt-40">The Academy</h2>
-              <div className="space-y-6 text-lg text-gray-700">
-                <p>
-                  We are a professional School for beauty training academy in Pune, Maharashtra. With a Vision of expanding in Mumbai, Nagpur, Nashik etc.
-                </p>
-                <p>
-                  We offer certified beauty courses in cosmetology - Hair, Skin, makeup, Nail and salon management with personality development and soft skills.
-                </p>
-                <p>
-                  The education is designed to prepare students for exciting careers in beauty and fashion industry in India and abroad.
-                </p>
-              </div>
-            </div>
-            <div 
-              data-aos="fade-left"
-              className="relative h-80 md:h-96 rounded-lg overflow-hidden border-4 border-pink-100 shadow-lg"
-            >
-              <Image 
-                src="/ourAcad.jpg" 
-                alt="Academy Classroom"
-                fill
-                className="object-cover"
-              />
-              
-            </div>
-          </div>
+     <section className="py-20 px-4 pt-52 h-[70vh] md:h-[70vh] overflow-hidden sm:px-6 lg:px-8 bg-white sm:bg-gradient-to-br sm:from-pink-50 sm:via-white sm:to-pink-50">
+  <div className="max-w-7xl mx-auto">
+    <div
+      data-aos="fade-up"
+      data-aos-duration="800"
+      className="grid md:grid-cols-2 gap-12 items-center"
+    >
+      <div className="relative">
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-8 text-pink-600 -mt-40 sm:-mt-32">The Academy</h2>
+        <div className="space-y-6 text-lg text-gray-700 sm:text-base">
+          <p data-aos="fade-up" data-aos-delay="100" className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-pink-400">
+            We are a professional School for beauty training academy in Pune, Maharashtra. With a Vision of expanding in Mumbai, Nagpur, Nashik etc.
+          </p>
+          <p data-aos="fade-up" data-aos-delay="200" className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-pink-400">
+            We offer certified beauty courses in cosmetology - Hair, Skin, makeup, Nail and salon management with personality development and soft skills.
+          </p>
+          <p data-aos="fade-up" data-aos-delay="300" className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-pink-400">
+            The education is designed to prepare students for exciting careers in beauty and fashion industry in India and abroad.
+          </p>
         </div>
-      </section>
+      </div>
+      <div 
+        data-aos="fade-left"
+        data-aos-duration="1000"
+        className="relative h-80 md:h-96 rounded-lg overflow-hidden border-4 border-pink-100 shadow-lg sm:shadow-xl sm:hover:scale-105 sm:transition-transform sm:duration-300"
+      >
+        <Image 
+          src="/ourAcad.jpg" 
+          alt="Academy Classroom"
+          fill
+          className="object-cover sm:scale-110 sm:transition-transform sm:duration-500"
+        />
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Our Teachers Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-pink-50">
@@ -238,36 +248,61 @@ const AboutPage = () => {
       </section>
 
       {/* Technology Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-pink-50">
+  <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-pink-50 to-white md:bg-pink-50">
   <div className="max-w-7xl mx-auto">
-    <div
-      data-aos="fade-up"
-      className="grid md:grid-cols-2 gap-12 items-center"
-    >
-      <div className="relative h-80 md:h-96 rounded-lg overflow-hidden border-4 border-pink-200 shadow-lg">
+    <div data-aos="fade-up" className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+      {/* Image Section - Enhanced for Mobile */}
+      <div className="relative w-full h-64 md:h-96 rounded-2xl md:rounded-lg overflow-hidden border-4 border-pink-200 shadow-xl md:shadow-lg transform transition-all hover:scale-[1.02] hover:shadow-2xl">
         <Image 
           src="/11.webp" 
           alt="Beauty Academy Training"
           fill
           className="object-cover"
+          priority
         />
-      </div>
-      <div>
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-pink-600">Our Goal: Shaping Confident Beauty Professionals</h2>
-        <div className="space-y-6 text-lg text-gray-700">
-          <p>
-            At our academy, we are dedicated to empowering students to become exceptional beauty professionals and confident trainers. Our goal is to equip them with the skills and mindset to overcome challenges and excel in the industry.
-          </p>
-          <p>
-            Through extensive hands-on practice, we build their confidence in client handling. Weekly speech sessions enhance their soft skills and communication, preparing them to present fearlessly to large audiences.
-          </p>
-          <p>
-            We provide internal mock interviews to ensure they ace real-world opportunities. Our comprehensive training, combined with personalized guidance, motivates students to pursue their dreams and become successful entrepreneurs.
-          </p>
-          <p>
-            Our promise is to shape the careers of every student, fostering their potential and empowering them to achieve excellence in the beauty industry.
-          </p>
+        {/* Mobile-only decorative elements */}
+        <div className="md:hidden absolute inset-0 bg-gradient-to-t from-black/30 to-transparent flex items-end p-6">
+          <h2 className="text-2xl font-bold text-white">Our Training Philosophy</h2>
         </div>
+      </div>
+
+      {/* Content Section - Enhanced for Mobile */}
+      <div className="space-y-6">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-pink-600 leading-tight">
+          Our Goal: <span className="text-pink-800">Shaping Confident</span> Beauty Professionals
+        </h2>
+        
+        <div className="space-y-6 text-gray-700">
+          {/* Each paragraph with mobile enhancements */}
+          <div className="p-4 md:p-0 bg-white/50 md:bg-transparent rounded-xl md:rounded-none shadow-md md:shadow-none">
+            <p className="text-base md:text-lg">
+              At our academy, we are dedicated to empowering students to become exceptional beauty professionals and confident trainers.
+            </p>
+          </div>
+          
+          <div className="p-4 md:p-0 bg-white/50 md:bg-transparent rounded-xl md:rounded-none shadow-md md:shadow-none">
+            <p className="text-base md:text-lg">
+              Through extensive hands-on practice, we build their confidence in client handling. Weekly speech sessions enhance soft skills.
+            </p>
+          </div>
+          
+          <div className="p-4 md:p-0 bg-white/50 md:bg-transparent rounded-xl md:rounded-none shadow-md md:shadow-none">
+            <p className="text-base md:text-lg">
+              We provide internal mock interviews to ensure they ace real-world opportunities with personalized guidance.
+            </p>
+          </div>
+          
+          <div className="p-4 md:p-0 bg-white/50 md:bg-transparent rounded-xl md:rounded-none shadow-md md:shadow-none">
+            <p className="text-base md:text-lg font-medium text-pink-700 md:text-gray-700">
+              Our promise is to shape careers, fostering potential and empowering excellence in the beauty industry.
+            </p>
+          </div>
+        </div>
+
+        {/* Mobile-only CTA button */}
+        <button className="md:hidden ml-20 bg-gradient-to-r from-pink-500 to-pink-600 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
+          Learn About Our Programs
+        </button>
       </div>
     </div>
   </div>
@@ -298,6 +333,7 @@ const AboutPage = () => {
           </div>
         </div>
       )}
+      <Footer/>
     </div>
   );
 };

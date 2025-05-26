@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa';
 import FixedContactIcons from '@/components/elements/FixedContactIcons';
+import Footer from '@/components/footer';
 
 type GalleryItem = {
   id: number;
@@ -14,24 +15,26 @@ type GalleryItem = {
 };
 
 const galleryItems: GalleryItem[] = [
-  { id: 1, src: '/gallary/IMG_9469.JPG', alt: 'Classroom session', category: 'Academy', type: 'image' },
-  { id: 2, src: '/gallary/IMG_9465.JPG', alt: 'Students working', category: 'Academy', type: 'image' },
-  { id: 3, src: '/gallary/IMG_9465.JPG', alt: 'Hair styling demo', category: 'Hair', type: 'image' },
-  { id: 4, src: '/gallary/IMG_9469.JPG', alt: 'Hair coloring', category: 'Hair', type: 'image' },
-  { id: 5, src: '/gallary/IMG_9485.JPG', alt: 'Makeup application', category: 'Makeup', type: 'image' },
-  { id: 6, src: '/imagegallary.jpg', alt: 'Bridal makeup', category: 'Makeup', type: 'image' },
-  { id: 7, src: '/imagegallary.jpg', alt: 'Workshop event', category: 'Events', type: 'image' },
-  { id: 8, src: '/imagegallary.jpg', alt: 'Award ceremony', category: 'Events', type: 'image' },
-  { id: 9, src: '/imagegallary.jpg', alt: 'Skincare treatment', category: 'Skincare', type: 'image' },
-  { id: 10, src: '/imagegallary.jpg', alt: 'Facial demo', category: 'Skincare', type: 'image' },
-  { id: 11, src: '/imagegallary.jpg', alt: 'Student showcase', category: 'Students', type: 'image' },
-  { id: 12, src: '/imagegallary.jpg', alt: 'Graduation day', category: 'Students', type: 'image' },
-  { id: 13, src: '/gallary/Video1.MP4', alt: 'Makeup tutorial', category: 'Academy', type: 'video' },
-  { id: 14, src: '/gallary/IMG_9463.MP4', alt: 'Hair styling session', category: 'Hair', type: 'video' },
-  { id: 15, src: '/gallary/IMG_9588.MP4', alt: 'Skincare routine demo', category: 'Hair', type: 'video' },
-  { id: 16, src: '/gallary/IMG_9453.MP4', alt: 'Bridal makeup process', category: 'Hair', type: 'video' },
-  { id: 17, src: '/gallary/IMG_9459.MP4', alt: 'Workshop highlights', category: 'Hair', type: 'video' },
+  { id: 1, src: '/images/one.jpg', alt: 'Classroom session', category: 'Academy', type: 'image' },
+  { id: 2, src: '/images/two.jpg', alt: 'Students working', category: 'Academy', type: 'image' },
+  { id: 3, src: '/images/three.jpg', alt: 'Hair styling demo', category: 'Hair', type: 'image' },
+  { id: 4, src: '/images/four.jpg', alt: 'Hair coloring', category: 'Hair', type: 'image' },
+  { id: 5, src: '/images/five.jpg', alt: 'Makeup application', category: 'Makeup', type: 'image' },
+  { id: 6, src: '/images/one.jpg', alt: 'Bridal makeup', category: 'Makeup', type: 'image' },
+  { id: 7, src: '/images/two.jpg', alt: 'Workshop event', category: 'Events', type: 'image' },
+  { id: 8, src: '/images/three.jpg', alt: 'Award ceremony', category: 'Events', type: 'image' },
+  { id: 9, src: '/images/four.jpg', alt: 'Skincare treatment', category: 'Skincare', type: 'image' },
+  { id: 10, src: '/images/two.jpg', alt: 'Facial demo', category: 'Skincare', type: 'image' },
+  { id: 11, src: '/images/three.jpg', alt: 'Student showcase', category: 'Students', type: 'image' },
+  { id: 12, src: '/images/two.jpg', alt: 'Graduation day', category: 'Students', type: 'image' },
+  { id: 13, src: '/images/three.jpg', alt: 'Makeup tutorial', category: 'Academy', type: 'image' },
+  { id: 14, src: '/images/two.jpg', alt: 'Hair styling session', category: 'Hair', type: 'image' },
+  { id: 15, src: '/images/five.jpg', alt: 'Skincare routine demo', category: 'Hair', type: 'image' },
+  { id: 16, src: '/images/two.jpg', alt: 'Bridal makeup process', category: 'Hair', type: 'image' },
+  { id: 17, src: '/images/one.jpg', alt: 'Workshop highlights', category: 'Hair', type: 'image' },
 ];
+
+
 
 const Gallery = () => {
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
@@ -64,13 +67,36 @@ const Gallery = () => {
         <div className="absolute inset-0 bg-[url('/subtle-pattern.png')] opacity-5"></div>
       </div>
 
+      <section className="relative h-[60vh] flex items-center justify-center bg-pink-900/70 overflow-hidden">
+  <FixedContactIcons />
+  <div className="absolute inset-0 z-0">
+    <Image
+      src="/images/two.jpg"
+      alt="Gallery Showcase"
+      fill
+      className="object-cover "
+      priority
+    />
+  </div>
+  <div className="relative mt-6 mb-28 h-[50vh] text-center px-4 max-w-4xl mx-auto z-10" data-aos="fade-up">
+    {/* Blurred background only for text area */}
+    <div className="absolute inset-0  bg-black/30 backdrop-blur-sm rounded-3xl -z-10"></div>
+    <h1 className="text-7xl md:text-5xl lg:text-6xl font-bold mb-6 mt-26 text-white">
+      Gallery
+    </h1>
+    <p className="text-xl text-white/90 mt-10">
+      Explore our stunning collection of beauty transformations and academy highlights
+    </p>
+  </div>
+</section>
+
       <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl sm:text-5xl font-bold text-center mb-12 text-gray-800 pt-8"
+          className="text-4xl sm:text-5xl font-bold text-center mb-12 text-pink-600 pt-8"
         >
           Our Gallery
         </motion.h2>
@@ -90,7 +116,7 @@ const Gallery = () => {
               whileTap={{ scale: 0.98 }}
               className={`px-4 py-2 rounded-md text-sm sm:text-base transition-all ${
                 activeCategory === category 
-                  ? 'bg-gray-800 text-white font-medium shadow-md' 
+                  ? 'bg-pink-700 text-white font-medium shadow-md' 
                   : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-100'
               }`}
             >
@@ -213,6 +239,7 @@ const Gallery = () => {
           </div>
         </div>
       )}
+        <Footer/>
     </div>
   );
 };

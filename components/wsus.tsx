@@ -4,6 +4,13 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+
+
+type Service = {
+  title: string;
+  icon: string;
+  description: string;
+};
 function Wsus() {
   useEffect(() => {
     AOS.init({
@@ -13,7 +20,7 @@ function Wsus() {
     });
   }, []);
 
-  const services = [
+  const services: Service[] = [
     {
       title: 'Hair Cutting',
       icon: '✂️',
@@ -31,7 +38,7 @@ function Wsus() {
     },
     {
       title: 'Nail Art',
-      icon: '💅',
+      icon: '/nail.svg',
       description: 'Nails are not just for cutting anymore. Our Nail Artists bring life to your nails, adding that extra touch to your natural beauty with creative designs.'
     },
     {
@@ -48,6 +55,7 @@ function Wsus() {
 
   return (
     <section className="py-12 px-4 sm:px-6 bg-gradient-to-b from-pink-50 to-white">
+     
       <div className="max-w-7xl mx-auto">
         <h2 
           className="text-2xl sm:text-3xl md:text-5xl font-bold text-center mb-8 sm:mb-12 md:mb-16 bg-gradient-to-r from-pink-600 to-pink-800 bg-clip-text text-transparent"
@@ -65,7 +73,11 @@ function Wsus() {
               data-aos="fade-up"
               data-aos-delay={300 + (index * 100)}
             >
-              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4 text-pink-600">{service.icon}</div>
+              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4 text-pink-600">{service.icon.endsWith('.svg') ? (
+    <img src={service.icon} alt={service.title} className="w-10 h-10 inline-block" />
+  ) : (
+    service.icon
+  )}</div>
               <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-pink-700 mb-2 sm:mb-3">{service.title}</h3>
               <p className="text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed">{service.description}</p>
               <div className="mt-4 sm:mt-6 h-1 w-16 sm:w-20 bg-gradient-to-r from-pink-400 to-pink-200 rounded-full"></div>

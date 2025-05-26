@@ -147,7 +147,7 @@ const Menu: React.FC = () => {
   return (
     <div ref={container}>
       {/* Top Menu Bar - Only added fixed height for mobile */}
-      <div className="menu-bar fixed top-0 left-0 w-full p-[2em] flex items-center justify-between z-10 bg-white shadow-sm h-[30px] sm:h-[30px] ">
+      <div className=" fixed top-0 left-0 w-full p-[2em] flex items-center justify-between z-20 bg-white shadow-sm h-[30px] sm:h-[30px] ">
         <div className="flex items-center justify-between w-full px-6 py-5 mr-9">
           <div className="relative w-28 -ml-8 h-22">
             <Image
@@ -185,10 +185,10 @@ const Menu: React.FC = () => {
       {/* Menu Overlay - Only added overflow-y-auto for mobile */}
       <div
         ref={overlayRef}
-        className="menu-overlay fixed top-0 left-0 w-full h-full p-[2em] flex flex-col z-20 overflow-y-auto"
+        className="menu-overlay fixed -top-9  left-0 w-full h-full p-[2em] flex flex-col z-20 overflow-y-auto"
         style={{ background: colors.light }}
       >
-        <div className="menu-overlay-bar flex justify-between -ml-8 sm:mr-0 px-6 py-5">
+        <div className="menu-overlay-bar flex mb-10  justify-between -ml-8 sm:mr-0 px-6 py-5">
           <div className="relative w-28 h-22">
             <Image
               src="/1000134308-removebg-preview.png"
@@ -215,16 +215,16 @@ const Menu: React.FC = () => {
           </button>
         </div>
 
-        {/* Menu Links - Only adjusted ml for mobile */}
+        {/* Menu Links  */}
         <div className="flex flex-col justify-start flex-grow sm:mt-[-50px]">
-          <div className="menu-links flex flex-col space-y-4 ml-0 sm:ml-[48vh]">
+          <div className=" text-amber-300 flex flex-col space-y-4 ml-25 sm:ml-[77vh]">
             {menuLinks.map((link, index) => (
-              <div className="menu-link-items" key={index}>
+              <div className="" key={index}>
                 <div
                   ref={(el) => {
                     linkHoldersRef.current[index] = el;
                   }}
-                  className="menu-link-item-holder relative"
+                  className=" relative"
                   onClick={() => {
                     if (link.isPopup) {
                       openPopup();
@@ -266,9 +266,7 @@ const Menu: React.FC = () => {
             </div>
           </div>
 
-          <div className="menu-preview text-[#1a0a12] text-sm">
-            <p>Preview</p>
-          </div>
+          
         </div>
       </div>
 

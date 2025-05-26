@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Menu from "@/components/menu/menu";
-import Footer from "@/components/footer";
-import ContactPopup from "@/components/elements/ContactPopup";
+// import Footer from "@/components/footer";
 
 
 export const metadata: Metadata = {
@@ -21,10 +20,10 @@ export default function RootLayout({
         className={` antialiased`}
       >
         <Menu/>
-        <ContactPopup/>
+
         {children}
          
-        <Footer/>
+        {/* <Footer/> */}
       </body>
       
     </html>

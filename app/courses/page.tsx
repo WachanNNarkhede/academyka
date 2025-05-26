@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import FixedContactIcons from '@/components/elements/FixedContactIcons';
+import Footer from '@/components/footer';
 
 const CoursesPage: React.FC = () => {
   useEffect(() => {
@@ -32,7 +33,7 @@ const CoursesPage: React.FC = () => {
    {
   title: 'Female Hair Dressing Course',
   description: 'Master the art of hair design, from classic cuts to advanced treatments, blending theory and hands-on practice to create confident professionals.',
-  image: '/hair-course.jpg',
+  image: '/images/fhc.jpg',
   highlights: [
     'Comprehensive theory: hair science, tools, soft skills, and consultation',
     'Cutting techniques: basic, advanced, short, and fusion styles',
@@ -46,7 +47,7 @@ const CoursesPage: React.FC = () => {
     {
       title: '  Male Barbering Course',
       description: 'Master modern and classic barbering skills, from scissor and clipper techniques to fades, beard styling, coloring, and spa treatments.',
-      image: '/skin-course.jpg',
+      image: '/imagegallary.jpg',
       highlights: [
         'Tool handling, scissor and clipper techniques',
     'Fade haircuts: high, medium, low, razor, and mullet styles',
@@ -60,7 +61,7 @@ const CoursesPage: React.FC = () => {
    {
   title: 'Advanced Skin and Beauty Therapy Course',
   description: 'Gain in-depth knowledge and hands-on expertise in skincare, waxing, facial therapies, and body treatments using advanced tools and professional techniques.',
-  image: '/skin-beauty-course.jpg', // Replace with your actual image path
+  image: '/images/skin.jpg', // Replace with your actual image path
   highlights: [
     'Comprehensive theory: skin types, anatomy, hygiene, cosmetic chemistry, and facial machines',
     'Basic to advanced facial techniques including cleanup, deep cleansing, and hydra facial',
@@ -75,7 +76,7 @@ const CoursesPage: React.FC = () => {
     {
   title: 'Nail Art Course',
   description: 'Master the art of nail design from the fundamentals to advanced techniques, including gel extensions, 3D designs, and artistic finishes like chrome, ombré, and marble art.',
-  image: '/nail-art-course.jpg', 
+  image: '/images/nailsart.jpg', 
   highlights: [
     'Introduction to tools, brushes, and nail anatomy',
     'Types, shapes of nails, and client consultation basics',
@@ -89,7 +90,7 @@ const CoursesPage: React.FC = () => {
 {
   title: 'Makeup Artistry Course',
   description: 'Become a certified makeup artist by mastering a wide range of techniques for bridal, editorial, and high-definition makeup, tailored for all skin types and occasions.',
-  image: '/makeup-course.jpg', // Replace with actual image path
+  image: '/images/one.jpg', // Replace with actual image path
   highlights: [
     'Foundation knowledge: skin analysis, color theory, and product knowledge',
     'Day, evening, party, and bridal makeup looks',
@@ -136,35 +137,36 @@ const CoursesPage: React.FC = () => {
       <FixedContactIcons />
 
       {/* Hero Section */}
-      <section className="relative h-[55vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/beauty-academy-hero.jpg"
-            alt="Beauty Academy Courses"
-            fill
-            className="object-cover opacity-90"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#ff4785]/70 to-[#e91e63]/70"></div>
-        </div>
-        <div className="relative mt-20 md:mt-0 text-center px-4 max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-white tracking-tight">
-            Transform Your Passion into Mastery
-          </h1>
-          <p className="text-xl text-[#ffffff]/90 mb-8 max-w-3xl mx-auto">
-            Unlock your potential with our world-class beauty and grooming courses, designed to elevate your career.
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.05, backgroundColor: '#ff5c8d', color: '#ffffff' }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-[#ff8ab5] text-[#ffffff] font-semibold py-3 px-10 rounded-full shadow-lg transition-all duration-300"
-            data-aos="zoom-in"
-            data-aos-delay="400"
-          >
-            Discover Courses
-          </motion.button>
-        </div>
-      </section>
+     <section className="relative h-[55vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
+  <div className="absolute inset-0">
+    <Image
+      src="/images/two.jpg"
+      alt="Beauty Academy Courses"
+      fill
+      className="object-cover opacity-90"
+      priority
+    />
+  </div>
+  <div className="relative mt-16 mb-28 h-[50vh] text-center px-4 max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+    {/* Blurred background only for text area */}
+    <div className="absolute inset-0 bg-black/30 backdrop-blur-sm rounded-3xl -z-10"></div>
+    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 mt-26 text-white tracking-tight">
+      Transform Your Passion into Mastery
+    </h1>
+    <p className="text-xl text-[#ffffff]/90 mb-8 max-w-3xl mx-auto">
+      Unlock your potential with our world-class beauty and grooming courses, designed to elevate your career.
+    </p>
+    <motion.button
+      whileHover={{ scale: 1.05, backgroundColor: '#ff5c8d', color: '#ffffff' }}
+      whileTap={{ scale: 0.95 }}
+      className="bg-[#ff8ab5] text-[#ffffff] font-semibold py-3 px-10 rounded-full shadow-lg transition-all duration-300"
+      data-aos="zoom-in"
+      data-aos-delay="400"
+    >
+      Discover Courses
+    </motion.button>
+  </div>
+</section>
 
       {/* Courses Section */}
       <section className="py-32 px-4 sm:px-6 lg:px-8 bg-[#fff5f9]">
@@ -279,6 +281,7 @@ const CoursesPage: React.FC = () => {
           </div>
         </div>
       </section>
+        <Footer/>
     </div>
   );
 };

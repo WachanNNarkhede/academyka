@@ -28,7 +28,7 @@ const FixedContactIcons = () => {
           href="https://wa.me/yourphonenumber"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-lg hover:bg-[#128C7E] transition-all duration-300 group relative overflow-hidden"
+          className="flex items-center justify-center w-14 h-14 rounded-full bg-white text-white shadow-lg hover:bg-[#128C7E] transition-all duration-300 group relative overflow-hidden"
           aria-label="Join WhatsApp Community"
         >
           <span className="absolute inset-0 bg-white opacity-10 group-hover:opacity-20 transition-opacity duration-300"></span>
