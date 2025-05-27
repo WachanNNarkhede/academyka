@@ -154,7 +154,7 @@ const Menu: React.FC = () => {
               src="/1000134308-removebg-preview.png"
               alt="Logo"
               fill
-              className="object-contain"
+              className="object-contain "
               priority
             />
           </div>
@@ -164,14 +164,14 @@ const Menu: React.FC = () => {
             className="relative flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-5 mr-4 sm:mr-6 md:mr-8 lg:mr-12"
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
-            <span className={`text-xs sm:text-sm md:text-base lg:text-lg font-medium text-[#1a0a12] tracking-wider transition-all duration-300 ${
+            <span className={`text-xs sm:text-sm md:text-base lg:text-md font-medium text-[#1a0a12] tracking-wider transition-all duration-300 ${
               isMenuOpen ? 'text-[#ff4785]' : 'group-hover:text-[#ff4785]'
             }`}>
               {isMenuOpen ? 'CLOSE' : 'MENU'}
             </span>
             
-            <div className="relative mr-8 w-5 sm:w-6 md:w-7 lg:w-8 h-4 sm:h-5 md:h-6 lg:h-7 flex flex-col justify-center">
-              <span className={`absolute h-[1px] w-full bg-[#1a0a12] transition-all duration-300 ${
+            <div className="relative mr-8 w-5 sm:w-6 md:w-7 lg:w-8 h-4 sm:h-4 md:h-4 lg:h-5 flex flex-col justify-center">
+              <span className={`absolute h-[2px] w-full bg-[#1a0a12] transition-all duration-300 ${
                 isMenuOpen ? 'rotate-45 top-1/2' : 'top-0'
               }`}></span>
               <span className={`absolute h-[1px] w-full bg-[#1a0a12] transition-all duration-300 ${
@@ -185,16 +185,16 @@ const Menu: React.FC = () => {
       {/* Menu Overlay */}
       <div
         ref={overlayRef}
-        className="menu-overlay fixed top-0   left-0 w-full h-full flex flex-col z-20 overflow-y-auto px-4 sm:px-6 md:px-8 lg:px-12 pt-4 sm:pt-6 md:pt-8 lg:pt-12"
+        className="menu-overlay fixed top-0   left-0 w-full h-full  flex flex-col z-20 overflow-y-auto px-4 sm:px-6 md:px-8 lg:px-12 pt-4 sm:pt-6 md:pt-8 lg:pt-12"
         style={{ background: colors.light }}
       >
-        <div className="menu-overlay-bar  flex justify-between mb-20 sm:mb-8 md:mb-10 lg:mb-12 -ml-4 sm:-ml-6 md:-ml-8 lg:-ml-12">
+        <div className="menu-overlay-bar  flex justify-between mr-6  mb-20 sm:mb-8 md:mb-10 lg:mb-12 ml-10 sm:-ml-6 md:-ml-8 lg:-ml-12">
           <div className="relative w-20 lg:-translate-y-6 sm:w-24  md:w-28 lg:w-32 h-10 sm:h-12 md:h-14 lg:h-16">
             <Image
               src="/1000134308-removebg-preview.png"
               alt="Logo"
               fill
-              className="object-contain"
+              className="object-contain ml-4"
               priority
             />
           </div>
