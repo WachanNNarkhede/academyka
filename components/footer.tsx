@@ -1,120 +1,169 @@
-"use client";
-import React, { useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
+'use client';
+import React, { useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { FaHome, FaInfoCircle, FaHotel, FaImages, FaBook, FaTwitter, FaInstagram, FaLinkedin, FaFacebook, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 // @ts-expect-error TS2307
-import AOS from "aos";
-import "aos/dist/aos.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const navLinks = [
-  { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
-  { label: "Accommodation", path: "/accommodation" },
-  { label: "Gallery", path: "/gallery" },
-  { label: "Courses", path: "/courses" },
+  { label: 'Home', path: '/', icon: <FaHome className="text-[#00BCD4] mr-1" /> },
+  { label: 'About', path: '/about', icon: <FaInfoCircle className="text-[#00BCD4] mr-1" /> },
+  { label: 'Accommodation', path: '/accommodation', icon: <FaHotel className="text-[#00BCD4] mr-1" /> },
+  { label: 'Gallery', path: '/gallery', icon: <FaImages className="text-[#00BCD4] mr-1" /> },
+  { label: 'Courses', path: '/courses', icon: <FaBook className="text-[#00BCD4] mr-1" /> },
 ];
 
 const socialLinks = [
-  { label: "X", href: "#" },
-  { label: "Instagram", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "Facebook", href: "#" },
+  { label: 'X', href: '#', icon: <FaTwitter className="text-[#00BCD4] mr-1" /> },
+  { label: 'Instagram', href: '#', icon: <FaInstagram className="text-[#00BCD4] mr-1" /> },
+  { label: 'LinkedIn', href: '#', icon: <FaLinkedin className="text-[#00BCD4] mr-1" /> },
+  { label: 'Facebook', href: '#', icon: <FaFacebook className="text-[#00BCD4] mr-1" /> },
+];
+
+const contactInfo = [
+  { label: 'info@kunal.com', icon: <FaEnvelope className="text-[#00BCD4] mr-1" /> },
+  { label: '45599 9966 5566', icon: <FaPhone className="text-[#00BCD4] mr-1" /> },
+  { 
+    label: 'Location on Map', 
+    icon: <FaMapMarkerAlt className="text-[#00BCD4] mr-1" />, 
+    href: 'https://maps.app.goo.gl/FfhsNyANfLcwvJj2A' 
+  },
 ];
 
 function Footer() {
   useEffect(() => {
-    AOS.init({
-      delay: 200,
-      duration: 800,
-      easing: "ease-in-out-quad",
-      once: true,
-    });
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        delay: 100,
+        duration: 600,
+        easing: 'ease-in-out',
+        once: true,
+      });
+      AOS.refresh();
+    }
   }, []);
 
   return (
-    <footer className="footer-container relative bg-gray-900 text-white py-16 px-4 sm:px-8 h-50 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#D4AF37]/10 to-transparent opacity-20 mt-16" />
+    <footer className="relative bg-[#1A1A1A] text-white py-6 px-4 sm:px-6 lg:px-8 max-h-[00px] lg:max-h-[280px] overflow-hidden">
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#D4AF37]/10 to-transparent opacity-70" />
 
-      <div className="footer-grid max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 z-10">
-        {/* Logo/Branding */}
-        <div className="flex flex-col items-center md:items-start" data-aos="fade-up">
-          <Link href="/" className="footer-logo relative">
-            <Image
-              src="/1000134308-removebg-preview.png"
-              alt="Krunal's Academy Logo"
-              width={180}
-              height={60}
-              className="object-contain"
-              priority
-            />
-          </Link>
-          <p className="mt-4 text-gray-300 text-center md:text-left">
-            Empowering Beauty Professionals Since 2010
-          </p>
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 flex-col">
+          {/* Logo/Branding */}
+          <div className="flex flex-col items-center md:items-start min-h-[40px] border-b border-[#D4AF37]/70 pb-3 sm:pb-0 sm:border-b-0 sm:border-r" data-aos="fade-up">
+            <Link href="/" className="relative">
+              <Image
+                src="/1000134308-removebg-preview.png"
+                alt="Krunal's Academy Logo"
+                width={100}
+                height={30}
+                className="object-contain sm:w-[120px] sm:h-[40px] md:w-[160px] md:h-[50px]"
+                priority
+              />
+            </Link>
+            <p className="mt-2 text-[#666666] text-[10px] sm:text-xs text-center md:text-left">
+              Empowering Beauty Since 2010
+            </p>
+          </div>
+
+          {/* Navigation Links */}
+          <div className="flex flex-col items-center md:items-start min-h-[40px] border-b border-[#D4AF37]/70 py-3 sm:py-2 sm:border-b-0 sm:border-r" data-aos="fade-up" data-aos-delay="100">
+            <h3 className="text-sm sm:text-base font-semibold text-[#D4AF37] mb-1 font-['Warnes',cursive]">Explore</h3>
+            <ul className="flex flex-row flex-wrap justify-center md:flex-col gap-1.5 md:gap-1">
+              {navLinks.map((link) => (
+                <li key={link.path} className="flex items-center">
+                  {link.icon}
+                  <Link
+                    href={link.path}
+                    className="text-[#FFFFFF] text-[10px] sm:text-xs hover:text-[#D4AF37] transition-all duration-200 hover:shadow-[0_0_4px_#D4AF37] px-1.5 py-0.5 rounded"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Social Links */}
+          <div className="flex flex-col items-center md:items-start min-h-[40px] border-b border-[#D4AF37]/70 py-3 sm:py-2 sm:border-b-0 sm:border-r" data-aos="fade-up" data-aos-delay="200">
+            <h3 className="text-sm sm:text-base font-semibold text-[#D4AF37] mb-1 font-['Warnes',cursive]">
+              Connect
+            </h3>
+            <ul className="flex flex-row flex-wrap justify-center md:flex-col gap-1.5 md:gap-1">
+              {socialLinks.map((link) => (
+                <li key={link.label} className="flex items-center">
+                  {link.icon}
+                  <a
+                    href={link.href}
+                    className="text-[#FFFFFF] text-[10px] sm:text-xs hover:text-[#D4AF37] transition-all duration-200 hover:shadow-[0_0_4px_#D4AF37] px-1.5 py-0.5 rounded"
+                  >
+                    {link.label} ↗
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div className="flex flex-col items-center md:items-start min-h-[40px] py-3 sm:py-2" data-aos="fade-up" data-aos-delay="300">
+            <h3 className="text-sm sm:text-base font-semibold text-[#D4AF37] mb-1 font-['Warnes',cursive]">Get in Touch</h3>
+            <ul className="space-y-0.5 flex flex-row gap-4 md:flex-col justify-center md:justify-start">
+              {contactInfo.map((info, index) => (
+                <li key={index} className="flex items-center text-[#666666] text-[10px] sm:text-xs">
+                  {info.icon}
+                  {info.href ? (
+                    <a
+                      href={info.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-[#D4AF37] transition-all duration-200"
+                    >
+                      {info.label}
+                    </a>
+                  ) : (
+                    <span>{info.label}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        {/* Navigation Links */}
-        <div className="flex flex-col items-center md:items-start" data-aos="fade-up" data-aos-delay="200">
-          <h3 className="footer-heading text-xl font-bold text-[#D4AF37] mb-4 font-['Warnes',_cursive]">Explore</h3>
-          <ul className="footer-nav-list space-y-2">
-            {navLinks.map((link) => (
-              <li key={link.path}>
-                <Link
-                  href={link.path}
-                  className="text-gray-300 hover:text-[#D4AF37] transition-all duration-300 hover:shadow-[0_0_10px_#D4AF37] px-2 py-1 rounded"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Social Links */}
-        <div className="flex flex-col items-center md:items-start" data-aos="fade-up" data-aos-delay="400">
-          <h3 className="footer-heading text-xl font-bold text-[#D4AF37] mb-4 font-['Warnes',_cursive]">Connect</h3>
-          <ul className="footer-social-list space-y-2">
-            {socialLinks.map((link) => (
-              <li key={link.label}>
-                <a
-                  href={link.href}
-                  className="text-gray-300 hover:text-[#D4AF37] transition-all duration-300 hover:shadow-[0_0_10px_#D4AF37] px-2 py-1 rounded"
-                >
-                  {link.label} ↗
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Contact & Newsletter */}
-        <div className="flex flex-col items-center md:items-start" data-aos="fade-up" data-aos-delay="600">
-          <h3 className="footer-heading text-xl font-bold text-[#D4AF37] mb-4 font-['Warnes',_cursive]">Get in Touch</h3>
-          <p className="text-gray-300 mb-2">info@kunal.com</p>
-          <p className="text-gray-300 mb-4">45599 9966 5566</p>
+        {/* Decorative Wave Line */}
+        <div className="my-2 sm:my-10 overflow-hidden hidden sm:block">
+          <div className="my-4">
+            <svg className="w-full h-2 text-[#D4AF37] opacity-50" viewBox="0 0 100 2" preserveAspectRatio="none">
+              <path d="M0 1 H25 L30 0 L35 2 L40 0 H75 L80 2 L85 0 L90 2 H100" stroke="currentColor" strokeWidth="0.5" fill="none" />
+            </svg>
+          </div>
         </div>
       </div>
 
       {/* Copyright */}
       <div
-        className="footer-copyright mt-12 text-center text-gray-300 border-t border-[#D4AF37]/20 pt-6"
+        className="text-center text-[#666666] text-[10px] sm:text-xs border-t border-[#D4AF37]/20 pt-2"
         data-aos="fade-in"
-        data-aos-delay="1000"
+        data-aos-delay="400"
       >
         <p>© {new Date().getFullYear()} Krunal&apos;s Academy. All rights reserved.</p>
       </div>
 
-      {/* Decorative glow */}
+      {/* Decorative Glow */}
       <div
-        className="footer-glow absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full bg-[#D4AF37]/10 blur-3xl"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-[#D4AF37]/10 blur-2xl"
         data-aos="fade-in"
-        data-aos-delay="1200"
+        data-aos-delay="500"
       />
 
-      {/* Decorative SVG */}
-      <svg className="absolute top-4 right-4 h-12 w-12 opacity-20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2l2 20h-4l2-20z" fill="#D4AF37" fillOpacity="0.3" />
+      {/* Decorative SVGs */}
+      <svg className="absolute top-3 right-3 h-6 w-6 text-[#00BCD4] opacity-30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 3l-2 6h4l-2-6zm0 12l-2 6h4l-2-6z" fill="currentColor" />
+      </svg>
+      <svg className="absolute top-3 left-3 h-6 w-6 text-[#00BCD4] opacity-30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 18l6-12 6 12" stroke="currentColor" strokeWidth="1.5" fill="none" />
       </svg>
 
       {/* Scoped Inline Styles */}
@@ -124,122 +173,74 @@ function Footer() {
           z-index: 1;
         }
 
-        .footer-container .footer-grid {
-          display: grid;
-          gap: 3rem; /* Matches gap-12 (12 * 0.25rem) */
-        }
-
-        .footer-container .footer-logo img {
-          width: 180px;
-          height: 60px;
-        }
-
-        @media (min-width: 768px) {
-          .footer-container .footer-grid {
-            grid-template-columns: repeat(4, Rosetta Stone
-          }
-
-          .footer-container .footer-logo img {
-            width: 180px;
-            height: 60px;
-          }
-        }
-
-        @media (max-width: 768px) {
-          .footer-container {
-            padding: 40px 15px;
-          }
-
-          .footer-container .footer-grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-          }
-
-          .footer-container .footer-logo img {
-            width: 150px;
-            height: 50px;
-          }
-
-          .footer-container .footer-heading {
-            font-size: 1.25rem;
-          }
-
-          .footer-container .text-gray-300 {
-            font-size: 0.9rem;
-          }
-
-          .footer-container .footer-copyright {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-          }
-
-          .footer-container .footer-glow {
-            width: 40vw;
-            height: 40vw;
-          }
-
-          .footer-container .footer-nav-list,
-          .footer-container .footer-social-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
-            margin: 0 auto;
-          }
-
-          .footer-container .footer-nav-list li,
-          .footer-container .footer-social-list li {
-            flex: 0 0 auto;
-          }
-
-          .footer-container .footer-nav-list li a,
-          .footer-container .footer-social-list li a {
-            font-size: 0.9rem;
-            padding: 0.25rem 0.5rem;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .footer-container {
-            padding: 30px 10px;
-          }
-
-          .footer-container .footer-grid {
+        @media (min-width: 1024px) {
+          .footer-container .grid {
+            grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
           }
-
-          .footer-container .footer-logo img {
-            width: 120px;
-            height: 40px;
+          .footer-container .text-base {
+            font-size: 1rem;
           }
-
-          .footer-container .footer-heading {
-            font-size: 1.125rem;
+          .footer-container .text-xs {
+            font-size: 0.75rem;
           }
-
-          .footer-container .text-gray-300 {
-            font-size: 0.85rem;
+          .footer-container .my-2 {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
           }
+        }
 
-          .footer-container .footer-copyright {
-            margin-top: 1.5rem;
-            padding-top: 1rem;
+        @media (min-width: 640px) and (max-width: 1023px) {
+          .footer-container {
+            padding: 1.25rem;
           }
-
-          .footer-container .footer-glow {
-            width: 50vw;
-            height: 50vw;
+          .footer-container .grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
           }
-
-          .footer-container .footer-nav-list,
-          .footer-container .footer-social-list {
-            gap: 0.4rem;
+          .footer-container .text-base {
+            font-size: 0.875rem;
           }
+          .footer-container .text-xs {
+            font-size: 0.65rem;
+          }
+          .footer-container .my-2 {
+            margin-top: 0.25rem;
+            margin-bottom: 0.25rem;
+          }
+          .footer-container .pt-2 {
+            padding-top: 0.25rem;
+          }
+        }
 
-          .footer-container .footer-nav-list li a,
-          .footer-container .footer-social-list li a {
-            font-size: 0.85rem;
-            padding: 0.2rem 0.4rem;
+        @media (max-width: 639px) {
+          .footer-container {
+            padding: 0.75rem;
+            max-height: 400px;
+          }
+          .footer-container .grid {
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+          }
+          .footer-container .text-base {
+            font-size: 0.75rem;
+          }
+          .footer-container .text-xs {
+            font-size: 0.6rem;
+          }
+          .footer-container .my-2 {
+            margin-top: 0.25rem;
+            margin-bottom: 0.25rem;
+          }
+          .footer-container .pt-2 {
+            padding-top: 0.25rem;
+          }
+          .footer-container .w-32 {
+            width: 24vw;
+            height: 24vw;
           }
         }
       `}</style>

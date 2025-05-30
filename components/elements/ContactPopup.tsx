@@ -20,7 +20,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
     email: '',
     description: '',
     terms: false,
-    newsletter: false
+    newsletter: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -53,13 +53,18 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
       return;
     }
 
-    // Skip the initial render in development (due to StrictMode)
+    // Skip initial render in development (due to StrictMode)
     if (initialRender.current) {
       initialRender.current = false;
       return;
     }
 
-    if (pathname && hasBeenClosedForRouteRef.current !== pathname) {
+    // Check if form was previously submitted (globally, not per route)
+    const hasSubmitted = typeof window !== 'undefined' 
+      ? localStorage.getItem('formSubmitted')
+      : null;
+
+    if (pathname && hasBeenClosedForRouteRef.current !== pathname && !hasSubmitted) {
       setIsOpen(true);
       setIsAnimatingOut(false);
     }
@@ -67,7 +72,6 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
 
   const closePopup = () => {
     setIsAnimatingOut(true);
-    // Remember we closed it for THIS route
     hasBeenClosedForRouteRef.current = pathname;
     
     setTimeout(() => {
@@ -82,7 +86,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
         email: '',
         description: '',
         terms: false,
-        newsletter: false
+        newsletter: false,
       });
       setErrors({});
     }, 300);
@@ -94,7 +98,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
     
     setFormData(prev => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: type === 'checkbox' ? checked : value,
     }));
 
     // Clear error when typing
@@ -141,19 +145,23 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
           mobile: formData.mobile,
           email: formData.email,
           description: formData.description,
-          newsletter: formData.newsletter
+          newsletter: formData.newsletter,
         }),
       });
 
       if (response.ok) {
         setSubmitStatus('success');
+        // Mark form as submitted globally in localStorage
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('formSubmitted', 'true');
+        }
         setFormData({
           name: '',
           mobile: '',
           email: '',
           description: '',
           terms: false,
-          newsletter: false
+          newsletter: false,
         });
       } else {
         throw new Error('Submission failed');
@@ -169,16 +177,16 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
   if (typeof window === 'undefined' || !isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 lg:p-4 bg-black/60 backdrop-blur-sm overflow-y-auto">
       <motion.div
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: isAnimatingOut ? 0.95 : 1, opacity: isAnimatingOut ? 0 : 1 }}
         transition={{ duration: 0.3, ease: 'easeOut' }}
-        className="relative w-full max-w-[90vw] sm:max-w-3xl lg:max-w-4xl max-h-[90vh] bg-white rounded-2xl shadow-2xl overflow-y-auto overflow-x-hidden"
+        className="relative w-full max-w-[85vw] sm:max-w-2xl lg:max-w-3xl max-h-[85vh] bg-white rounded-2xl shadow-2xl overflow-y-auto overflow-x-hidden"
       >
         <div className="flex flex-col md:flex-row min-h-0">
           {/* Left Section: Founder's Portrait */}
-          <div className="relative w-full md:w-1/2 h-52 sm:h-64 md:h-auto bg-gradient-to-b from-[#D4AF37]/20 to-[#E8C372]/20">
+          <div className="relative w-full md:w-1/2 h-48 sm:h-56 md:h-auto bg-gradient-to-b from-[#D4AF37]/20 to-[#E8C372]/20">
             <Image
               src={imageSrc}
               alt="Founder's Portrait"
@@ -194,7 +202,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
           </div>
 
           {/* Right Section: Form */}
-          <div className="w-[90%] md:w-1/2 p-4 sm:p-5 md:p-6 flex flex-col min-h-0">
+          <div className="w-[90%] md:w-1/2 p-3 sm:p-4 md:p-5 flex flex-col min-h-0">
             {/* Close Button */}
             <button
               onClick={closePopup}
@@ -207,41 +215,41 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
             </button>
 
             {/* Header */}
-            <div className="text-center mb-6 sm:mb-7">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#D4AF37] leading-tight">Contact Us</h2>
-              <p className="mt-2 sm:mt-2.5 text-[#666666] text-sm sm:text-base md:text-lg leading-tight">We&apos;d love to hear from you!</p>
+            <div className="text-center mb-4 sm:mb-5">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#D4AF37] leading-tight">Contact Us</h2>
+              <p className="mt-1.5 sm:mt-2 text-[#666666] text-sm sm:text-base leading-tight">We&apos;d love to hear from you!</p>
             </div>
 
             {submitStatus === 'success' ? (
-              <div className="flex flex-col items-center justify-center h-full py-10 text-center">
-                <svg className="w-16 h-16 text-green-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="flex flex-col items-center justify-center h-full py-8 text-center">
+                <svg className="w-14 h-14 text-green-500 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                <h3 className="text-xl font-semibold text-gray-800">Thank You!</h3>
-                <p className="text-gray-600 mt-2">Your message has been sent successfully.</p>
+                <h3 className="text-lg font-semibold text-gray-800">Thank You!</h3>
+                <p className="text-gray-600 mt-1.5">Your message has been sent successfully.</p>
                 <button
                   onClick={closePopup}
-                  className="mt-4 px-4 py-2 bg-[#D4AF37] text-white rounded-lg hover:bg-[#E8C372] transition-colors"
+                  className="mt-3 px-4 py-2 bg-[#D4AF37] text-white rounded-lg hover:bg-[#E8C372] transition-colors"
                 >
                   Close
                 </button>
               </div>
             ) : submitStatus === 'error' ? (
-              <div className="flex flex-col items-center justify-center h-full py-10 text-center">
-                <svg className="w-16 h-16 text-red-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="flex flex-col items-center justify-center h-full py-8 text-center">
+                <svg className="w-14 h-14 text-red-500 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <h3 className="text-xl font-semibold text-gray-800">Submission Failed</h3>
-                <p className="text-gray-600 mt-2">Please try again later.</p>
+                <h3 className="text-lg font-semibold text-gray-800">Submission Failed</h3>
+                <p className="text-gray-600 mt-1.5">Please try again later.</p>
                 <button
                   onClick={() => setSubmitStatus('idle')}
-                  className="mt-4 px-4 py-2 bg-[#D4AF37] text-white rounded-lg hover:bg-[#E8C372] transition-colors"
+                  className="mt-3 px-4 py-2 bg-[#D4AF37] text-white rounded-lg hover:bg-[#E8C372] transition-colors"
                 >
                   Try Again
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 flex-grow p-3 text-black sm:p-4 mx-auto w-full max-w-[95%] min-h-0 box-border">
+              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 flex-grow p-2 text-black sm:p-3 mx-auto w-full max-w-[95%] min-h-0 box-border">
                 <div>
                   <label htmlFor="name" className="block text-sm sm:text-base font-medium text-[#1c0a12] mb-1 leading-tight">
                     Your Full Name *
@@ -253,7 +261,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className={`w-full max-w-[95%] px-3 sm:px-3.5 py-2 sm:py-2.5 text-sm sm:text-base border ${errors.name ? 'border-red-400' : 'border-[#E8E8E8]'} rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] bg-[#FFFFFF] min-h-[1.2rem] shadow-sm box-border`}
+                    className={`w-full max-w-[95%] px-3 sm:px-3.5 py-1.5 sm:py-2 text-sm sm:text-base border ${errors.name ? 'border-red-400' : 'border-[#E8E8E8]'} rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] bg-[#FFFFFF] min-h-[1.2rem] shadow-sm box-border`}
                   />
                   {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
                 </div>
@@ -269,7 +277,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
                     onChange={handleInputChange}
                     pattern="[0-9]{10}"
                     required
-                    className={`w-full max-w-[95%] px-3 sm:px-3.5 py-2 sm:py-2.5 text-sm sm:text-base border ${errors.mobile ? 'border-red-400' : 'border-[#E8E8E8]'} rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] bg-[#FFFFFF] min-h-[1.2rem] shadow-sm box-border`}
+                    className={`w-full max-w-[95%] px-3 sm:px-3.5 py-1.5 sm:py-2 text-sm sm:text-base border ${errors.mobile ? 'border-red-400' : 'border-[#E8E8E8]'} rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] bg-[#FFFFFF] min-h-[1.2rem] shadow-sm box-border`}
                   />
                   {errors.mobile && <p className="mt-1 text-xs text-red-500">{errors.mobile}</p>}
                 </div>
@@ -284,7 +292,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className={`w-full max-w-[95%] px-3 sm:px-3.5 py-2 sm:py-2.5 text-sm sm:text-base border ${errors.email ? 'border-red-400' : 'border-[#E8E8E8]'} rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] bg-[#FFFFFF] min-h-[1.2rem] shadow-sm box-border`}
+                    className={`w-full max-w-[95%] px-3 sm:px-3.5 py-1.5 sm:py-2 text-sm sm:text-base border ${errors.email ? 'border-red-400' : 'border-[#E8E8E8]'} rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] bg-[#FFFFFF] min-h-[1.2rem] shadow-sm box-border`}
                   />
                   {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
                 </div>
@@ -299,11 +307,11 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
                     onChange={handleInputChange}
                     rows={3}
                     required
-                    className={`w-full max-w-[95%] px-3 sm:px-3.5 py-2 sm:py-2.5 text-sm sm:text-base border ${errors.description ? 'border-red-400' : 'border-[#E8E8E8]'} rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] bg-[#FFFFFF] min-h-[6rem] resize-none shadow-sm box-border`}
+                    className={`w-full max-w-[95%] px-3 sm:px-3.5 py-1.5 sm:py-2 text-sm sm:text-base border ${errors.description ? 'border-red-400' : 'border-[#E8E8E8]'} rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] bg-[#FFFFFF] min-h-[5rem] resize-none shadow-sm box-border`}
                   ></textarea>
                   {errors.description && <p className="mt-1 text-xs text-red-500">{errors.description}</p>}
                 </div>
-                <div className="space-y-2 pt-2">
+                <div className="space-y-2 pt-1">
                   <div className="flex items-center">
                     <input
                       id="terms"
@@ -334,11 +342,11 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
                     </label>
                   </div>
                 </div>
-                <div className="pt-4 sm:pt-5 flex justify-center">
+                <div className="pt-3 sm:pt-4 flex justify-center">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full max-w-[50%] sm:max-w-[10rem] px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base font-medium text-white bg-[#D4AF37] rounded-lg hover:bg-[#E8C372] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:ring-offset-2 transition-colors min-h-[1.5rem] shadow-sm disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
+                    className="w-full max-w-[50%] sm:max-w-[9rem] px-4 sm:px-5 py-1.5 sm:py-2 text-sm sm:text-base font-medium text-white bg-[#D4AF37] rounded-lg hover:bg-[#E8C372] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:ring-offset-2 transition-colors min-h-[1.5rem] shadow-sm disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
                   >
                     {isSubmitting ? (
                       <>

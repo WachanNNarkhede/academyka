@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ContactPopup from '@/components/elements/ContactPopup';
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 interface MenuLink {
   label: string;
@@ -185,11 +186,18 @@ const Menu: React.FC = () => {
         className="menu-overlay fixed top-0 left-0 w-full h-full flex flex-col z-20 overflow-y-auto px-4 sm:px-6 md:px-8 lg:px-12 pt-4 sm:pt-6 md:pt-8 lg:pt-12 bg-gray-50"
       >
         {/* Decorative SVG */}
-        <svg className="absolute top-4 left-4 h-12 w-12 opacity-30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className="absolute top-150 left-4 h-12 w-12 opacity-30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="12" cy="12" r="10" stroke="#D4AF37" strokeWidth="1" fill="none" />
         </svg>
-        <div className="menu-overlay-bar flex justify-between mr-6 mb-20 sm:mb-8 md:mb-10 lg:mb-12 ml-10 sm:-ml-6 md:-ml-8 lg:-ml-12">
-          <div className="relative w-20 lg:-translate-y-6 sm:w-24 md:w-28 lg:w-32 h-10 sm:h-12 md:h-14 lg:h-16">
+ <svg className="absolute top-162 left-20 h-8 w-12 opacity-30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="#D4AF37" strokeWidth="1" fill="none" />
+        </svg>
+         <svg className="absolute top-170 left-30 h-7 w-12 opacity-30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="#D4AF37" strokeWidth="1" fill="none" />
+        </svg>
+
+        <div className="menu-overlay-bar mt-2 flex justify-between mr-6 mb-20 sm:mb-8 md:mb-10 lg:mb-12 ml-10 sm:-ml-6 md:-ml-8 lg:-ml-12">
+          <div className="relative w-20  lg:-ml-0 -ml-10 lg:-translate-y-6 sm:w-24 md:w-28 lg:w-32 h-10 sm:h-12 md:h-14 lg:h-16">
             <Image
               src="/1000134308-removebg-preview.png"
               alt="Logo"
@@ -216,8 +224,8 @@ const Menu: React.FC = () => {
         </div>
 
         {/* Menu Links */}
-        <div className="flex flex-col justify-start flex-grow mt-0 lg:mr-30 sm:mt-[-30px] md:mt-[-40px] lg:mt-[-50px]">
-          <div className="flex flex-col space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-5 justify-center items-center">
+        <div className="flex flex-col   mt-0 lg:mr-30 sm:mt-[-10px] md:mt-[-40px] lg:mt-[-50px]">
+          <div className="flex flex-col space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-5 ml-[30%] sm:ml-[35%] md:ml-[38%] lg:ml-[45%]">
             {menuLinks.map((link, index) => (
               <div className="" key={index}>
                 <div
@@ -252,19 +260,27 @@ const Menu: React.FC = () => {
         </div>
 
         {/* Footer */}
-        <div className="menu-footer mt-auto">
-          <div className="menu-info flex flex-col sm:flex-row justify-between gap-4 sm:gap-6 md:gap-8 lg:gap-10 mt-4 sm:mt-6 md:mt-8 lg:mt-10 mb-4 sm:mb-6 md:mb-8 lg:mb-12">
-            <div className="menu-info-col flex flex-wrap gap-3 sm:gap-4 md:gap-5 lg:gap-6 justify-end space-y-0 text-gray-900 text-xs sm:text-sm md:text-base lg:text-lg">
-              <a className="hover:text-[#D4AF37] transition-colors" href="#">X ↗</a>
-              <a className="hover:text-[#D4AF37] transition-colors" href="#">Instagram ↗</a>
-              <a className="hover:text-[#D4AF37] transition-colors" href="#">Linkedin ↗</a>
-              <a className="hover:text-[#D4AF37] transition-colors" href="#">Facebook ↗</a>
-            </div>
-            <div className="menu-info-col flex flex-wrap gap-3 sm:gap-4 md:gap-5 lg:gap-6 text-gray-900 text-xs sm:text-sm md:text-base lg:text-lg">
-              <p>info@kunal.com</p>
-              <p>45599 9966 5566</p>
-            </div>
-          </div>
+      <div className="menu-footer mt-auto">
+  <div className="menu-info flex flex-col sm:flex-row justify-between gap-4 sm:gap-6 md:gap-8 lg:gap-10 mt-4 sm:mt-6 md:mt-8 lg:mt-10 mb-4 sm:mb-6 md:mb-8 lg:mb-12" data-aos="fade-up" data-aos-delay="200" data-aos-easing="ease-in-out">
+    <div className="menu-info-col mb-8 flex flex-wrap gap-2 sm:gap-4 md:gap-5 lg:gap-6 justify-end space-y-0 text-gray-900 text-xs sm:text-sm md:text-base lg:text-lg">
+      <a className="flex items-center hover:text-[#D4AF37] hover:shadow-[0_0_4px_#D4AF37] transition-all duration-300" href="#">
+        <FaTwitter className="text-[#00BCD4] mr-1 sm:mr-2 text-xs sm:text-sm md:text-base lg:text-lg" />
+        X ↗
+      </a>
+      <a className="flex items-center hover:text-[#D4AF37] hover:shadow-[0_0_4px_#D4AF37] transition-all duration-300" href="#">
+        <FaInstagram className="text-[#00BCD4] mr-1 sm:mr-2 text-xs sm:text-sm md:text-base lg:text-lg" />
+        Instagram ↗
+      </a>
+      <a className="flex items-center hover:text-[#D4AF37] hover:shadow-[0_0_4px_#D4AF37] transition-all duration-300" href="#">
+        <FaLinkedin className="text-[#00BCD4] mr-1 sm:mr-2 text-xs sm:text-sm md:text-base lg:text-lg" />
+        Linkedin ↗
+      </a>
+      <a className="flex items-center hover:text-[#D4AF37] hover:shadow-[0_0_4px_#D4AF37] transition-all duration-300" href="#">
+        <FaFacebook className="text-[#00BCD4] mr-1 sm:mr-2 text-xs sm:text-sm md:text-base lg:text-lg" />
+        Facebook ↗
+      </a>
+    </div>
+  </div>
         </div>
       </div>
 

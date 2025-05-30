@@ -15,7 +15,7 @@ export default function TestimonialsScroll() {
       name: 'Amruta',
       role: 'Customer',
       company: "Krunal's Academy",
-      image: '/placeholder.svg?height=80&width=80',
+      image: '/male.png',
       quote:
         'I did haircut for the very 1st time at academy, initially I was little scared that how my hair`s will get cut, if not than how, but the entire team is very good & trained they treat very well, friendly so no worries. I got the best hair cut.',
       rating: 5,
@@ -24,7 +24,7 @@ export default function TestimonialsScroll() {
       name: 'SHUBHAM DANGAT',
       role: 'Student',
       company: "Krunal's Academy",
-      image: '/placeholder.svg?height=80&width=80',
+      image: '/male.png',
       quote:
         'We have done nail art and extension in the academy the staff was so cooperative and the work was soo soo perfect I just feel like I have perfect nails and perfect art on it thanku so much krunals academy for this☺️☺️',
       rating: 5,
@@ -33,7 +33,7 @@ export default function TestimonialsScroll() {
       name: 'Sayali',
       role: 'Customer',
       company: "Krunal's Academy",
-      image: '/placeholder.svg?height=80&width=80',
+      image: '/male.png',
       quote:
         'I am so happy with a global hair colour, hair cut thank you Sagar Pawar hair dresser & thank you Krunal`s academy i love it.',
       rating: 4,
@@ -42,7 +42,7 @@ export default function TestimonialsScroll() {
       name: 'Pooja Dake',
       role: 'Customer',
       company: "Krunal's Academy",
-      image: '/placeholder.svg?height=80&width=80',
+      image: '/male.png',
       quote:
         'I had a fantastic experience at krunal salon My stylist Vinayak he was incredibly attentive and really listened to what I wanted. He expertly cut my hair, and I`ve received so many compliments on my new style. I highly recommend this salon and stylist.',
       rating: 5,

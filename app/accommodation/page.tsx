@@ -210,68 +210,79 @@ const AccommodationPage = () => {
           <path stroke="currentColor" strokeWidth="2" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
         </svg>
       </section>
-     <section className="py-8 md:py-12 px-4 md:px-6 bg-[#F9F9F9]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {/* Hostel Rules */}
-          <div data-aos="fade-right" className="order-2 md:order-1">
-            <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-[#D4AF37] text-center md:text-left">
-              Hostel Rules
-            </h2>
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <ul className="space-y-2 text-sm">
-                {hostelRules.map((rule, index) => (
-                  <li key={index} className="flex items-start">
-                    <span className="text-[#D4AF37] mr-2 mt-1">•</span>
-                    <span className="flex-1 text-[#666666]">{rule}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+      {/* grid grid-cols-1 md:grid-cols-1 gap-6 */}
+<section className="py-10 md:py-14 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#F9F9F9] to-[#F0F0F0]">
+  <div className="max-w-6xl mx-auto">
+    {/* Hostel Rules */}
+    <div 
+      data-aos="fade-right" 
+      data-aos-delay="300" 
+      data-aos-duration="800" 
+      data-aos-easing="ease-in-out" 
+      className="flex flex-col md:flex-row gap-8 lg:gap-12 items-start"
+    >
+      {/* Title Section */}
+      <div className="w-full md:w-2/5 lg:w-1/3 flex flex-col items-center md:items-start md:sticky md:top-24">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 lg:mb-6 text-[#D4AF37] text-center md:text-left font-['Warnes',cursive] relative group">
+          Hostel Rules
+          <span className="absolute left-0 bottom-0 w-0 h-1 bg-[#D4AF37] transition-all duration-500 group-hover:w-full"></span>
+        </h2>
+        <p className="text-sm md:text-base text-gray-600 text-center md:text-left max-w-md">
+          To ensure a comfortable stay for all residents, please adhere to these guidelines.
+        </p>
+        <div className="hidden md:block mt-6 w-20 h-1 bg-[#00BCD4] rounded-full"></div>
+      </div>
 
-          {/* Booking Form */}
-          <div data-aos="fade-left" className="order-1 md:order-2">
-            <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-[#D4AF37] text-center md:text-left">
-              Book Your Stay
-            </h2>
-            <div className="bg-white rounded-lg shadow-sm p-4 md:pl-10 md:pt-3">
-              <form className="space-y-3 ">
-                {[
-                  {label: "Full Name", type: "text", placeholder: "Your name"},
-                  {label: "Email", type: "email", placeholder: "Your email"},
-                  {label: "Phone Number", type: "tel", placeholder: "Your phone number"},
-                  {label: "Course Enrolled In", type: "text", placeholder: "Your course name"},
-                  {label: "Preferred Move-in Date", type: "date"}
-                ].map((field, i) => (
-                  <div key={i}>
-                    <label className="block mb-1 text-sm font-medium text-[#1A1A1A]">
-                      {field.label}
-                    </label>
-                    <input
-                      type={field.type}
-                      className="w-[85%] md:w-[85%] px-3 py-2 text-sm border border-[#E8E8E8] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
-                      placeholder={field.placeholder}
-                    />
-                  </div>
-                ))}
-                <div className="flex justify-center md:block">
-                  <button
-                    type="submit"
-                    className="w-[40%] md:w-[35%] md:ml-44 bg-[#D4AF37] hover:bg-[#B8972F] text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm"
+      {/* Rules Box */}
+      <div className="w-full md:w-3/5 lg:w-2/3">
+        <div className="relative bg-white p-6 sm:p-8 lg:p-10 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-l-8 border-[#00BCD4] border-t-4 border-t-[#D4AF37]/30">
+          {/* Subtle Gradient Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/5 via-transparent to-[#00BCD4]/5 rounded-xl -z-10" />
+          
+          {/* Decorative Elements */}
+          <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-[#D4AF37]/50"></div>
+          <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-[#00BCD4]/50"></div>
+          
+          <ul className="space-y-3 sm:space-y-4">
+            {hostelRules.map((rule, index) => (
+              <li 
+                key={index} 
+                className="flex items-start p-3  rounded-lg transition-colors duration-200"
+              >
+                <div className="flex-shrink-0 p-1.5 bg-[#D4AF37]/10 rounded-full mr-4">
+                  <svg 
+                    className="w-5 h-5 text-[#D4AF37]" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    Request Booking
-                  </button>
+                    <path 
+                      d="M9 12l2 2 4-4" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                    />
+                  </svg>
                 </div>
-              </form>
-              <p className="mt-3 text-xs text-[#666666] text-center">
-                Our team will contact you within 24 hours to confirm your booking
-              </p>
-            </div>
-          </div>
+                <div className="flex-1">
+                  <span className="text-gray-800 font-medium">
+                    {rule.split(':')[0]}{rule.includes(':') ? ':' : ''}
+                  </span>
+                  <span className="text-gray-600">
+                    {rule.includes(':') ? rule.slice(rule.indexOf(':') + 1) : rule.slice(rule.indexOf(' ') + 1)}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <section className="py-8 md:py-12 px-4 md:px-6 bg-white">
+      {/* <section className="py-8 md:py-12 px-4 md:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-6 md:mb-8" data-aos="fade-up">
             <h2 className="text-xl md:text-2xl font-bold mb-2 text-[#D4AF37]">
@@ -318,7 +329,7 @@ const AccommodationPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       <Footer/>
     </div>
   );
