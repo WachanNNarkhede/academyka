@@ -102,29 +102,29 @@ code * {
 body {
   /* Base Colors */
   --white: #fff;
-  --white-feint: #f8f4f6;
-  --black: #1a0a12; /* Deep pinkish-black */
-  --black-2: #2a121f;
-  
-  /* Pink Color Spectrum */
-  --pink-light: #fff0f5;
-  --pink-primary: #ff85a2;
-  --pink-accent: #ff4785;
-  --pink-deep: #e91e63;
-  --pink-dark: #ad1457;
-  
-  /* Application Colors */
-  --text: var(--black);
-  --accent: var(--pink-accent);
-  --accent-transparent: #ff47851d;
-  --primary-control-color: var(--white);
-  --layer: #fff5f9;
-  --border: #ffd6e5;
-  --secondary-control-color: #ff85a20d;
-  --background: var(--white);
-  --layer-transparent: #fff5f9aa;
-  --divider: #ffebf2;
-  --feint-text: #d4a8b8;
+--white-feint: #f8f8f8;
+--black: #12100a; /* Deep gold-tinged black */
+--black-2: #1a1712;
+
+/* Pink Color Spectrum (Now Gold) */
+--pink-light: #fff9e5; /* Soft gold-white */
+--pink-primary: #d4af37; /* Base gold */
+--pink-accent: #c9a227; /* Saturated gold (accent) */
+--pink-deep: #b8931e; /* Deep gold */
+--pink-dark: #9a7d16; /* Dark gold */
+
+/* Application Colors (Same vars, gold values) */
+--text: var(--black);
+--accent: var(--pink-accent); /* Still references --pink-accent */
+--accent-transparent: #c9a2271d; /* Gold with transparency */
+--primary-control-color: var(--white);
+--layer: #fffdf5; /* Warm white */
+--border: #f5e9c8; /* Light gold border */
+--secondary-control-color: #d4af370d; /* Gold with low opacity */
+--background: var(--white);
+--layer-transparent: #fffdf5aa; /* Slightly transparent warm white */
+--divider: #f9f2e1; /* Soft gold divider */
+--feint-text: #c4b899; /* Muted gold text */
 
   /* Font */
   --font-mono: "Azeret Mono", monospace;

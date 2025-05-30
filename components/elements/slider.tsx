@@ -1,71 +1,53 @@
-"use client"
+'use client';
 
-import { animate, motion, type MotionValue, useMotionValue, useMotionValueEvent, useScroll } from "motion/react"
-import { useRef } from "react"
-import { User, Star } from "lucide-react"
+import { animate, motion, type MotionValue, useMotionValue, useMotionValueEvent, useScroll } from 'framer-motion';
+import { useRef } from 'react';
+import { User, Star } from 'lucide-react';
 
 export default function TestimonialsScroll() {
-  const ref = useRef(null)
-  const { scrollXProgress } = useScroll({ container: ref })
-  const maskImage = useScrollOverflowMask(scrollXProgress)
+  const ref = useRef(null);
+  const { scrollXProgress } = useScroll({ container: ref });
+  const maskImage = useScrollOverflowMask(scrollXProgress);
 
   // Testimonial data
   const testimonials = [
     {
-      name: "Amruta",
-      role: "Costumer",
+      name: 'Amruta',
+      role: 'Customer',
       company: "Krunal's Academy",
-      image: "/placeholder.svg?height=80&width=80",
+      image: '/placeholder.svg?height=80&width=80',
       quote:
-        "I did haircut for the very 1st time at acadmy, initially I was little scared that how my hair`s will get cut , if not than how, but the entire team is very good & trained they treat very well, friendly so no worries. I got the best hair cut.",
+        'I did haircut for the very 1st time at academy, initially I was little scared that how my hair`s will get cut, if not than how, but the entire team is very good & trained they treat very well, friendly so no worries. I got the best hair cut.',
       rating: 5,
     },
     {
-      name: "SHUBHAM DANGAT",
-      role: "Student",
+      name: 'SHUBHAM DANGAT',
+      role: 'Student',
       company: "Krunal's Academy",
-      image: "/placeholder.svg?height=80&width=80",
+      image: '/placeholder.svg?height=80&width=80',
       quote:
-        "We have done nail art and extension in the academy the staff was so cooperative and the work was soo soo perfect I just feel like I have perfect nails and perfect art on it thanku so much krunals academy for this☺️☺️",
+        'We have done nail art and extension in the academy the staff was so cooperative and the work was soo soo perfect I just feel like I have perfect nails and perfect art on it thanku so much krunals academy for this☺️☺️',
       rating: 5,
     },
     {
-      name: "Sayali",
-      role: "Product Manager",
-      company: "GrowthLabs",
-      image: "/placeholder.svg?height=80&width=80",
+      name: 'Sayali',
+      role: 'Customer',
+      company: "Krunal's Academy",
+      image: '/placeholder.svg?height=80&width=80',
       quote:
-        "I am so happy with a globel hair colour,hair cut thank youSagar Pawar hair dresser & thank you Krunal`s acadmy i love it.",
+        'I am so happy with a global hair colour, hair cut thank you Sagar Pawar hair dresser & thank you Krunal`s academy i love it.',
       rating: 4,
     },
     {
-      name: "pooja dake",
-      role: "Costumer",
+      name: 'Pooja Dake',
+      role: 'Customer',
       company: "Krunal's Academy",
-      image: "/placeholder.svg?height=80&width=80",
+      image: '/placeholder.svg?height=80&width=80',
       quote:
-        "I had a fantastic experience at krunal salon My stylist Vinayak he was incredibly attentive and really listened to what I wanted. He expertly cut my hair, and I`ve received so many compliments on my new style. I highly recommend this salon and stylist.",
+        'I had a fantastic experience at krunal salon My stylist Vinayak he was incredibly attentive and really listened to what I wanted. He expertly cut my hair, and I`ve received so many compliments on my new style. I highly recommend this salon and stylist.',
       rating: 5,
     },
-    // {
-    //   name: "Priya Patel",
-    //   role: "UX Designer",
-    //   company: "DesignForward",
-    //   image: "/placeholder.svg?height=80&width=80",
-    //   quote:
-    //     "The attention to detail in this product is remarkable. As a designer, I appreciate the thoughtful user experience and consistent interface.",
-    //   rating: 5,
-    // },
-    // {
-    //   name: "James Thompson",
-    //   role: "Operations Manager",
-    //   company: "LogisticsPro",
-    //   image: "/placeholder.svg?height=80&width=80",
-    //   quote:
-    //     "Implementation was quick and the ROI was evident within the first month. Our operational efficiency has improved significantly.",
-    //   rating: 4,
-    // },
-  ]
+  ];
 
   return (
     <div id="testimonials-section">
@@ -83,7 +65,7 @@ export default function TestimonialsScroll() {
               <div className="testimonial-header">
                 <div className="testimonial-avatar">
                   {testimonial.image ? (
-                    <img src={testimonial.image || "/model1"} alt={testimonial.name} />
+                    <img src={testimonial.image || '/model1'} alt={testimonial.name} />
                   ) : (
                     <div className="avatar-placeholder">
                       <User size={32} />
@@ -102,8 +84,8 @@ export default function TestimonialsScroll() {
                   <Star
                     key={i}
                     size={16}
-                    fill={i < testimonial.rating ? "#ff4785" : "transparent"}
-                    color={i < testimonial.rating ? "#ff4785" : "#ff85a2"}
+                    fill={i < testimonial.rating ? '#D4AF37' : 'transparent'}
+                    color={i < testimonial.rating ? '#D4AF37' : '#a88e2a'}
                     className="transition-colors duration-300 group-hover:scale-110"
                   />
                 ))}
@@ -115,44 +97,49 @@ export default function TestimonialsScroll() {
             </li>
           ))}
         </motion.ul>
+
+        {/* Decorative SVG */}
+        <svg className="absolute left-4 bottom-4 h-12 w-12 opacity-20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="#D4AF37" strokeWidth="1" fill="none" />
+        </svg>
       </div>
 
       <StyleSheet />
     </div>
-  )
+  );
 }
 
-const left = `0%`
-const right = `100%`
-const leftInset = `20%`
-const rightInset = `80%`
-const transparent = `#0000`
-const opaque = `#000`
+const left = `0%`;
+const right = `100%`;
+const leftInset = `20%`;
+const rightInset = `80%`;
+const transparent = `#0000`;
+const opaque = `#000`;
 function useScrollOverflowMask(scrollXProgress: MotionValue<number>) {
   const maskImage = useMotionValue(
     `linear-gradient(90deg, ${opaque}, ${opaque} ${left}, ${opaque} ${rightInset}, ${transparent})`,
-  )
+  );
 
-  useMotionValueEvent(scrollXProgress, "change", (value) => {
+  useMotionValueEvent(scrollXProgress, 'change', (value) => {
     if (value === 0) {
       animate(
         maskImage,
         `linear-gradient(90deg, ${opaque}, ${opaque} ${left}, ${opaque} ${rightInset}, ${transparent})`,
-      )
+      );
     } else if (value === 1) {
       animate(
         maskImage,
         `linear-gradient(90deg, ${transparent}, ${opaque} ${leftInset}, ${opaque} ${right}, ${opaque})`,
-      )
+      );
     } else if (scrollXProgress.getPrevious() === 0 || scrollXProgress.getPrevious() === 1) {
       animate(
         maskImage,
         `linear-gradient(90deg, ${transparent}, ${opaque} ${leftInset}, ${opaque} ${rightInset}, ${transparent})`,
-      )
+      );
     }
-  })
+  });
 
-  return maskImage
+  return maskImage;
 }
 
 function StyleSheet() {
@@ -164,6 +151,7 @@ function StyleSheet() {
         padding: 60px 20px;
         margin: 0 auto;
         position: relative;
+        background: #ffffff;
       }
 
       .section-title {
@@ -171,7 +159,7 @@ function StyleSheet() {
         font-weight: 600;
         text-align: center;
         margin-bottom: 40px;
-        color: #1a0a12; /* Dark pinkish-black */
+        color: #1a1a1a;
       }
 
       .testimonials-container {
@@ -188,7 +176,7 @@ function StyleSheet() {
       }
 
       .bg {
-        stroke: #ffd6e5; /* Light pink */
+        stroke: #e6e6e6;
       }
 
       #progress circle {
@@ -198,7 +186,7 @@ function StyleSheet() {
       }
 
       #progress .indicator {
-        stroke: #ff4785; /* Vibrant pink */
+        stroke: #D4AF37;
       }
 
       .testimonials-list {
@@ -215,28 +203,28 @@ function StyleSheet() {
       ::-webkit-scrollbar {
         height: 5px;
         width: 5px;
-        background: #fff0f5; /* Very light pink */
+        background: #f5f5f5;
         -webkit-border-radius: 1ex;
       }
 
       ::-webkit-scrollbar-thumb {
-        background: #ff85a2; /* Medium pink */
+        background: #D4AF37;
         -webkit-border-radius: 1ex;
       }
 
       ::-webkit-scrollbar-corner {
-        background: #fff0f5; /* Very light pink */
+        background: #f5f5f5;
       }
 
       .testimonial-card {
         flex: 0 0 380px;
-        background: #fff5f9; /* Slightly off-white pink */
+        background: #ffffff;
         border-radius: 16px;
         overflow: hidden;
         padding: 30px;
         display: flex;
         flex-direction: column;
-        border: 1px solid #ffd6e5; /* Light pink */
+        border: 1px solid #e6e6e6;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         height: auto;
         min-height: 300px;
@@ -244,7 +232,7 @@ function StyleSheet() {
 
       .testimonial-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(255, 71, 133, 0.1); /* Pink shadow */
+        box-shadow: 0 10px 20px rgba(212, 175, 55, 0.1);
       }
 
       .testimonial-header {
@@ -258,12 +246,12 @@ function StyleSheet() {
         height: 70px;
         border-radius: 50%;
         overflow: hidden;
-        background: rgba(255, 71, 133, 0.1); /* Vibrant pink with 10% opacity */
+        background: rgba(212, 175, 55, 0.1);
         display: flex;
         align-items: center;
         justify-content: center;
         margin-right: 20px;
-        border: 2px solid #ff4785; /* Vibrant pink */
+        border: 2px solid #D4AF37;
         transition: all 0.3s ease;
       }
 
@@ -279,25 +267,25 @@ function StyleSheet() {
         justify-content: center;
         width: 100%;
         height: 100%;
-        color: #ff4785; /* Vibrant pink */
+        color: #D4AF37;
       }
 
       .testimonial-author h3 {
         font-size: 1.2rem;
         font-weight: 600;
         margin: 0 0 5px 0;
-        color: #1a0a12; /* Dark pinkish-black */
+        color: #1a1a1a;
       }
 
       .testimonial-author .role {
         font-size: 0.9rem;
-        color: #ff4785; /* Vibrant pink */
+        color: #D4AF37;
         margin: 0 0 3px 0;
       }
 
       .testimonial-author .company {
         font-size: 0.85rem;
-        color: #6b7280; /* Gray for subtlety */
+        color: #6b7280;
         margin: 0;
       }
 
@@ -318,16 +306,16 @@ function StyleSheet() {
       blockquote p {
         font-size: 1rem;
         line-height: 1.6;
-        color: #1a0a12; /* Dark pinkish-black */
+        color: #1a1a1a;
       }
 
       blockquote::before {
-        content: """;
+        content: '“';
         font-size: 4rem;
         position: absolute;
         left: -10px;
         top: -30px;
-        color: rgba(255, 71, 133, 0.1); /* Vibrant pink with 10% opacity */
+        color: rgba(212, 175, 55, 0.1);
         font-family: serif;
       }
 
@@ -370,13 +358,9 @@ function StyleSheet() {
           margin-right: 15px;
         }
 
-        .testimonial-avatar img {
-          width: 100%;
-          height: 100%;
-        }
-
         .avatar-placeholder svg {
-          size: 24;
+          width: 24px;
+          height: 24px;
         }
 
         .testimonial-author h3 {
@@ -452,7 +436,8 @@ function StyleSheet() {
         }
 
         .avatar-placeholder svg {
-          size: 20;
+          width: 20px;
+          height: 20px;
         }
 
         .testimonial-author h3 {
@@ -488,5 +473,5 @@ function StyleSheet() {
         }
       }
     `}</style>
-  )
+  );
 }

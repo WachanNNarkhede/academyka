@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 // @ts-expect-error TS2307
@@ -9,6 +9,8 @@ import FixedContactIcons from '@/components/elements/FixedContactIcons';
 import Footer from '@/components/footer';
 
 const ServicesPage: React.FC = () => {
+  const servicesSectionRef = useRef<HTMLElement>(null);
+
   useEffect(() => {
     AOS.init({
       offset: 120,
@@ -16,7 +18,7 @@ const ServicesPage: React.FC = () => {
       duration: 800,
       easing: 'ease-out',
       once: true,
-      mirror: false,
+      mirror: true,
       anchorPlacement: 'top-center',
     });
     AOS.refreshHard();
@@ -41,10 +43,10 @@ const ServicesPage: React.FC = () => {
         'Hair Botox',
         'Hair Keratin',
         'Hair Nanoplasty',
-        'SMOOTHENING',
+        'Smoothening',
         'Straightening'
       ],
-      image: '/gallary/IMG_9465.jpg',
+      image: '/images/three.jpg',
       description: 'Transform your hair with our expert services ranging from cuts to advanced treatments.'
     },
     {
@@ -59,164 +61,134 @@ const ServicesPage: React.FC = () => {
         'Manicure',
         'Pedicure'
       ],
-      image: '/images/skin.jpg',
+      image: '/images/two.jpg',
       description: 'Reveal your most radiant skin with our professional skincare treatments.'
     },
     {
       title: 'Make Up',
       services: [
         'Party Make Up',
-        'Bridal Make Up',
+        'Bridal Makeup',
         'Reception Make Up',
         'Russian Upstyle',
-        'Indian Up do\'s',
+        'Indian Updo',
         'Open Hair Style',
         'Saree Draping',
-        'Groom Make Up'
+        'Groom Make-up'
       ],
-      image: '/images/four.jpg',
-      description: 'Perfect your look for any occasion with our professional makeup services.'
+      image: '/images/one.jpg',
+      description: 'Perfect your look for any occasion with our expert makeup artistry.'
     },
     {
       title: 'Nail Services',
       services: [
-        'Nail art',
-        'Gel polish',
-        'Gel extensions',
-        'Overlays',
-        'Refill',
-        'Gel polish removal',
-        'Gel extensions removal'
+        'Nail Art',
+        'Gel Polish',
+        'Nail Extensions',
+        'Manicure',
+        'Pedicure',
+        'Nail Repair',
+        '3D Nail Design'
       ],
-      image: '/images/nailsart.jpg',
-      description: 'Express your style with our creative nail designs and treatments.'
+      image: '/images/three.jpg',
+      description: 'Elevate your style with our creative and professional nail services.'
     }
   ];
 
-  return (
-    <div className="bg-[#ffffff] text-[#1c0a12] min-h-screen">
-      <FixedContactIcons />
+  const scrollToServices = () => {
+    servicesSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
-      {/* Hero Section */}
-    <section className="relative h-[50vh] sm:h-[70vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
-  <div className="absolute inset-0">
-    <Image
-      src="/images/one.jpg"
-      alt="Beauty Academy Services"
-      fill
-      className="object-cover opacity-80"
-      priority
-    />
-  </div>
-  <div className="relative mt-10 mb-28 h-[50vh] text-center px-4 max-w-6xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-    {/* Blurred background only for text area */}
-    <div className="absolute inset-0 bg-black/30 backdrop-blur-sm rounded-3xl -z-10"></div>
-    <h1 className="text-4xl md:text-5xl mt-46 lg:mt-26 lg:text-6xl font-extrabold mb-6 text-white tracking-tight">
-      Professional Beauty Services
-    </h1>
-    <p className="text-xl md:text-2xl text-[#ffffff]/90 mb-10 max-w-3xl mx-auto">
-      Experience top-quality beauty treatments performed by our skilled professionals.
-    </p>
-    <motion.button
-      whileHover={{ scale: 1.05, backgroundColor: '#ff5c8d', color: '#ffffff' }}
-      whileTap={{ scale: 0.95 }}
-      className="bg-[#ff8ab5] text-[#ffffff] font-semibold py-3 px-8 rounded-full shadow-xl transition-all duration-300 text-sm md:text-base whitespace-nowrap"
-      onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
-      aria-label="Book Appointment"
-      data-aos="zoom-in"
-      data-aos-delay="300"
-    >
-      Book Your Appointment
-    </motion.button>
-  </div>
-</section>
-      {/* Services Section */}
-      <section className="py-36 px-4 sm:px-6 lg:px-8 bg-[#fff5f9] relative">
-        <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-10 pointer-events-none"></div>
-        <div className="relative max-w-7xl mx-auto">
-          <div className="text-center mb-20" data-aos="fade-up" data-aos-delay="100">
-            <h2 className="text-3xl md:text-4xl font-bold mb-5 text-[#1c0a12]">
-              Our Comprehensive Services
+  return (
+    <div className="bg-[#FFFFFF] text-[#1A1A1A] min-h-screen">
+      <FixedContactIcons />
+      <section className="relative h-[55vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/two.jpg"
+            alt="Beauty Services"
+            fill
+            className="object-cover opacity-90"
+            priority
+          />
+        </div>
+        <div className="relative mt-16 mb-28 h-[50vh] text-center px-4 max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+          <div className="absolute inset-0 bg-[#1A1A1A]/30 backdrop-blur-sm rounded-3xl -z-10"></div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 mt-26 text-white tracking-tight">
+            Premium Beauty Services
+          </h1>
+          <p className="text-xl text-[#FFFFFF]/90 mb-8 max-w-3xl mx-auto">
+            Experience top-tier beauty treatments tailored to enhance your natural glow.
+          </p>
+          <motion.button
+            whileHover={{ scale: 1.05, backgroundColor: '#B8972F', color: '#FFFFFF' }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-[#D4AF37] text-[#FFFFFF] font-semibold py-3 px-10 rounded-full shadow-lg transition-all duration-300"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+            onClick={scrollToServices}
+          >
+            Explore Services
+          </motion.button>
+        </div>
+        <svg className="absolute top-10 left-10 w-16 h-16 text-[#00BCD4] opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke="currentColor" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      </section>
+      <section ref={servicesSectionRef} className="py-16 px-4 sm:px-6 lg:px-8 bg-[#F9F9F9]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16" data-aos="fade-up">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#D4AF37]">
+              Our Signature Services
             </h2>
-            <p className="text-lg md:text-xl text-[#b7849a] max-w-3xl mx-auto">
-              Explore our wide range of professional beauty treatments and services
+            <p className="text-lg text-[#666666] max-w-3xl mx-auto">
+              Discover our range of professional beauty treatments designed to make you shine.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {serviceCategories.map((category, index) => (
               <motion.div
                 key={index}
                 data-aos="fade-up"
-                data-aos-delay={100 + index * 100}
-                whileHover={{ y: -12, boxShadow: '0 16px 32px rgba(0, 0, 0, 0.2)' }}
-                className="bg-[#ffffff] rounded-3xl overflow-hidden shadow-xl border border-[#ffe4ec] flex flex-col transition-all duration-300 aos-reset"
+                data-aos-delay={200 + index * 100}
+                whileHover={{ y: -10, boxShadow: '0 12px 24px rgba(0, 0, 0, 0.15)' }}
+                className="bg-[#FFFFFF] rounded-2xl overflow-hidden shadow-lg border border-[#E8E8E8] flex flex-col"
               >
-                <div className="relative h-64">
+                <div className="relative h-60">
                   <Image
                     src={category.image}
                     alt={category.title}
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1c0a12]/70 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/60 to-transparent"></div>
                 </div>
-                <div className="p-8 flex flex-col flex-grow">
-                  <h3 className="text-xl md:text-2xl font-semibold text-[#ff8ab5] mb-3">{category.title}</h3>
-                  <p className="text-[#b7849a] mb-4 text-sm md:text-base">{category.description}</p>
-                  <div className="mb-6 flex-grow">
-                    <ul className="space-y-2">
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl font-semibold text-[#D4AF37] mb-3">{category.title}</h3>
+                  <p className="text-[#666666] mb-4 flex-grow">{category.description}</p>
+                  <div className="border-t border-[#E8E8E8] pt-4">
+                    <h4 className="text-md font-medium text-[#D4AF37] mb-2">Services Offered:</h4>
+                    <ul className={`space-y-2 ${category.title === 'Hair Services' ? 'grid grid-cols-2 gap-x-4 gap-y-2' : ''}`}>
                       {category.services.map((service, i) => (
-                        <li key={i} className="text-[#1c0a12] text-sm md:text-base">
-                          • {service}
+                        <li key={i} className="flex items-start">
+                          <span className="text-[#00BCD4] mr-2">•</span>
+                          <span className="text-[#666666] text-sm">{service}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <motion.button
-                    whileHover={{ scale: 1.05, backgroundColor: '#ff5c8d', color: '#ffffff' }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-[#fff5f9] border-2 border-[#ff8ab5] text-[#ff8ab5] font-semibold py-3 px-8 rounded-full transition-all duration-300"
-                  >
-                    Book Now
-                  </motion.button>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
+        <svg className="absolute bottom-10 right-10 w-12 h-12 text-[#00BCD4] opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke="currentColor" strokeWidth="2" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
       </section>
-
-      {/* Call-to-Action Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#ff8ab5]/10">
-        <div className="max-w-5xl mx-auto text-center" data-aos="fade-up" data-aos-delay="100">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#1c0a12]">
-            Ready for Your Transformation?
-          </h2>
-          <p className="text-lg text-[#b7849a] mb-8 max-w-3xl mx-auto">
-            Book your appointment today and experience professional beauty services at our academy.
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.05, backgroundColor: '#ff5c8d', color: '#ffffff' }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-[#ff8ab5] text-[#ffffff] font-semibold py-4 px-12 rounded-full shadow-xl transition-all duration-300 text-lg"
-          >
-            Schedule Now
-          </motion.button>
-        </div>
-      </section>
-
-      {/* CSS Reset for AOS Elements */}
-      <style jsx>{`
-        .aos-reset {
-          transform: none !important;
-          transition: transform 0s !important;
-        }
-        .aos-animate.aos-reset {
-          transform: none !important;
-        }
-      `}</style>
-        <Footer/>
+      <Footer />
     </div>
   );
 };
+
 export default ServicesPage;

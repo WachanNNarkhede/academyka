@@ -178,7 +178,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
       >
         <div className="flex flex-col md:flex-row min-h-0">
           {/* Left Section: Founder's Portrait */}
-          <div className="relative w-full md:w-1/2 h-52 sm:h-64 md:h-auto bg-gradient-to-b from-[#ff8ab5]/20 to-[#ff4785]/20">
+          <div className="relative w-full md:w-1/2 h-52 sm:h-64 md:h-auto bg-gradient-to-b from-[#D4AF37]/20 to-[#E8C372]/20">
             <Image
               src={imageSrc}
               alt="Founder's Portrait"
@@ -208,8 +208,8 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
 
             {/* Header */}
             <div className="text-center mb-6 sm:mb-7">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#ff8ab5] leading-tight">Contact Us</h2>
-              <p className="mt-2 sm:mt-2.5 text-[#b7849a] text-sm sm:text-base md:text-lg leading-tight">We&apos;d love to hear from you!</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#D4AF37] leading-tight">Contact Us</h2>
+              <p className="mt-2 sm:mt-2.5 text-[#666666] text-sm sm:text-base md:text-lg leading-tight">We&apos;d love to hear from you!</p>
             </div>
 
             {submitStatus === 'success' ? (
@@ -221,7 +221,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
                 <p className="text-gray-600 mt-2">Your message has been sent successfully.</p>
                 <button
                   onClick={closePopup}
-                  className="mt-4 px-4 py-2 bg-[#ff8ab5] text-white rounded-lg hover:bg-[#ff5c8d] transition-colors"
+                  className="mt-4 px-4 py-2 bg-[#D4AF37] text-white rounded-lg hover:bg-[#E8C372] transition-colors"
                 >
                   Close
                 </button>
@@ -235,7 +235,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
                 <p className="text-gray-600 mt-2">Please try again later.</p>
                 <button
                   onClick={() => setSubmitStatus('idle')}
-                  className="mt-4 px-4 py-2 bg-[#ff8ab5] text-white rounded-lg hover:bg-[#ff5c8d] transition-colors"
+                  className="mt-4 px-4 py-2 bg-[#D4AF37] text-white rounded-lg hover:bg-[#E8C372] transition-colors"
                 >
                   Try Again
                 </button>
@@ -253,7 +253,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className={`w-full max-w-[95%] px-3 sm:px-3.5 py-2 sm:py-2.5 text-sm sm:text-base border ${errors.name ? 'border-red-400' : 'border-[#ffe4ec]'} rounded-lg focus:ring-2 focus:ring-[#ff8ab5] focus:border-[#ff8ab5] bg-[#fff5f9] min-h-[1.2rem] shadow-sm box-border`}
+                    className={`w-full max-w-[95%] px-3 sm:px-3.5 py-2 sm:py-2.5 text-sm sm:text-base border ${errors.name ? 'border-red-400' : 'border-[#E8E8E8]'} rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] bg-[#FFFFFF] min-h-[1.2rem] shadow-sm box-border`}
                   />
                   {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
                 </div>
@@ -269,7 +269,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
                     onChange={handleInputChange}
                     pattern="[0-9]{10}"
                     required
-                    className={`w-full max-w-[95%] px-3 sm:px-3.5 py-2 sm:py-2.5 text-sm sm:text-base border ${errors.mobile ? 'border-red-400' : 'border-[#ffe4ec]'} rounded-lg focus:ring-2 focus:ring-[#ff8ab5] focus:border-[#ff8ab5] bg-[#fff5f9] min-h-[1.2rem] shadow-sm box-border`}
+                    className={`w-full max-w-[95%] px-3 sm:px-3.5 py-2 sm:py-2.5 text-sm sm:text-base border ${errors.mobile ? 'border-red-400' : 'border-[#E8E8E8]'} rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] bg-[#FFFFFF] min-h-[1.2rem] shadow-sm box-border`}
                   />
                   {errors.mobile && <p className="mt-1 text-xs text-red-500">{errors.mobile}</p>}
                 </div>
@@ -284,7 +284,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className={`w-full max-w-[95%] px-3 sm:px-3.5 py-2 sm:py-2.5 text-sm sm:text-base border ${errors.email ? 'border-red-400' : 'border-[#ffe4ec]'} rounded-lg focus:ring-2 focus:ring-[#ff8ab5] focus:border-[#ff8ab5] bg-[#fff5f9] min-h-[1.2rem] shadow-sm box-border`}
+                    className={`w-full max-w-[95%] px-3 sm:px-3.5 py-2 sm:py-2.5 text-sm sm:text-base border ${errors.email ? 'border-red-400' : 'border-[#E8E8E8]'} rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] bg-[#FFFFFF] min-h-[1.2rem] shadow-sm box-border`}
                   />
                   {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
                 </div>
@@ -299,7 +299,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
                     onChange={handleInputChange}
                     rows={3}
                     required
-                    className={`w-full max-w-[95%] px-3 sm:px-3.5 py-2 sm:py-2.5 text-sm sm:text-base border ${errors.description ? 'border-red-400' : 'border-[#ffe4ec]'} rounded-lg focus:ring-2 focus:ring-[#ff8ab5] focus:border-[#ff8ab5] bg-[#fff5f9] min-h-[6rem] resize-none shadow-sm box-border`}
+                    className={`w-full max-w-[95%] px-3 sm:px-3.5 py-2 sm:py-2.5 text-sm sm:text-base border ${errors.description ? 'border-red-400' : 'border-[#E8E8E8]'} rounded-lg focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] bg-[#FFFFFF] min-h-[6rem] resize-none shadow-sm box-border`}
                   ></textarea>
                   {errors.description && <p className="mt-1 text-xs text-red-500">{errors.description}</p>}
                 </div>
@@ -312,9 +312,9 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
                       checked={formData.terms}
                       onChange={handleInputChange}
                       required
-                      className={`h-4 sm:h-5 w-4 sm:w-5 text-[#ff8ab5] focus:ring-[#ff8ab5] ${errors.terms ? 'border-red-400' : 'border-[#ffe4ec]'} rounded`}
+                      className={`h-4 sm:h-5 w-4 sm:w-5 text-[#D4AF37] focus:ring-[#D4AF37] ${errors.terms ? 'border-red-400' : 'border-[#E8E8E8]'} rounded`}
                     />
-                    <label htmlFor="terms" className="ml-2 block text-sm sm:text-base text-[#b7849a] leading-tight">
+                    <label htmlFor="terms" className="ml-2 block text-sm sm:text-base text-[#666666] leading-tight">
                       Accept Terms & WhatsApp Notifications *
                     </label>
                   </div>
@@ -327,9 +327,9 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
                       type="checkbox"
                       checked={formData.newsletter}
                       onChange={handleInputChange}
-                      className="h-4 sm:h-5 w-4 sm:w-5 text-[#ff8ab5] focus:ring-[#ff8ab5] border-[#ffe4ec] rounded"
+                      className="h-4 sm:h-5 w-4 sm:w-5 text-[#D4AF37] focus:ring-[#D4AF37] border-[#E8E8E8] rounded"
                     />
-                    <label htmlFor="newsletter" className="ml-2 block text-sm sm:text-base text-[#b7849a] leading-tight">
+                    <label htmlFor="newsletter" className="ml-2 block text-sm sm:text-base text-[#666666] leading-tight">
                       Subscribe to Newsletters & Promotions
                     </label>
                   </div>
@@ -338,7 +338,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen: controlledIsOpen, o
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full max-w-[50%] sm:max-w-[10rem] px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base font-medium text-white bg-[#ff8ab5] rounded-lg hover:bg-[#ff5c8d] focus:outline-none focus:ring-2 focus:ring-[#ff8ab5] focus:ring-offset-2 transition-colors min-h-[1.5rem] shadow-sm disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
+                    className="w-full max-w-[50%] sm:max-w-[10rem] px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base font-medium text-white bg-[#D4AF37] rounded-lg hover:bg-[#E8C372] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:ring-offset-2 transition-colors min-h-[1.5rem] shadow-sm disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
                   >
                     {isSubmitting ? (
                       <>

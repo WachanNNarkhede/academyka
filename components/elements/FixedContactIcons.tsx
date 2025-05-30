@@ -77,7 +77,7 @@ const FixedContactIcons = () => {
         <Link
           href={`tel:${phoneNumber}`}
           onClick={toggleNumberDisplay}
-          className="flex items-center justify-center w-14 h-14 rounded-full bg-[#ff85a2] text-white shadow-lg hover:bg-[#ff4785] transition-all duration-300 relative overflow-hidden group"
+          className="flex items-center justify-center w-14 h-14 rounded-full bg-[#D4AF37] text-white shadow-lg hover:bg-[#ff4785] transition-all duration-300 relative overflow-hidden group"
           aria-label="Call Now"
         >
           <span className="absolute inset-0 bg-white opacity-10 group-hover:opacity-20 transition-opacity duration-300"></span>

@@ -3,7 +3,7 @@ import ScrollLinked from "./elements/slider";
 
 function Testimonials() {
   return (
-    <section className="flex bg-[#fae6ed] items-center justify-center h-full w-full">
+    <section className="flex bg-[#ffffff] items-center justify-center h-full w-full">
       <div className="flex items-center justify-center w-full max-w-screen-xl mx-auto">
         <ScrollLinked />
       </div>

@@ -4,7 +4,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { IoClose } from 'react-icons/io5';
 
-// Define TypeScript interface for the item prop
 interface Item {
   title: string;
   desc: string;
@@ -32,7 +31,7 @@ const Popup: React.FC<PopupProps> = ({ item, onClose }) => {
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(28, 10, 18, 0.7)', // Semi-transparent charcoal
+        backgroundColor: 'rgba(26, 26, 26, 0.7)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -47,10 +46,9 @@ const Popup: React.FC<PopupProps> = ({ item, onClose }) => {
         exit={{ scale: 0.8, opacity: 0 }}
         transition={{ duration: 0.3, ease: [0.175, 0.885, 0.32, 1.275] }}
         style={{
-          backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(/makeup-bg.jpg)',
+          backgroundColor: 'white',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundBlendMode: 'overlay',
           width: '80%',
           maxWidth: '800px',
           padding: '2rem',
@@ -72,7 +70,7 @@ const Popup: React.FC<PopupProps> = ({ item, onClose }) => {
             background: 'none',
             border: 'none',
             fontSize: '1.5rem',
-            color: '#ff5c8d',
+            color: '#D4AF37',
             cursor: 'pointer',
             transition: 'transform 0.2s ease',
           }}
@@ -82,23 +80,23 @@ const Popup: React.FC<PopupProps> = ({ item, onClose }) => {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           <div>
-            <h2 style={{ fontSize: '2rem', color: '#ff5c8d', marginBottom: '0.5rem', fontWeight: '700' }}>
+            <h2 style={{ fontSize: '2rem', color: '#D4AF37', marginBottom: '0.5rem', fontWeight: '700' }}>
               {item.title}
             </h2>
-            <p style={{ color: '#b7849a', fontSize: '1.1rem', lineHeight: '1.6' }}>
+            <p style={{ color: '#666', fontSize: '1.1rem', lineHeight: '1.6' }}>
               {item.desc}
             </p>
           </div>
 
-          <div style={{ backgroundColor: 'rgba(255, 92, 141, 0.1)', padding: '1rem', borderRadius: '8px' }}>
-            <h3 style={{ color: '#ff5c8d', marginBottom: '0.5rem', fontWeight: '600' }}>
+          <div style={{ backgroundColor: 'rgba(212, 175, 55, 0.1)', padding: '1rem', borderRadius: '8px' }}>
+            <h3 style={{ color: '#D4AF37', marginBottom: '0.5rem', fontWeight: '600' }}>
               {isService ? 'Service Includes' : 'Course Covers'}
             </h3>
             <ul style={{ listStyleType: 'none', paddingLeft: '0' }}>
               {item.details.map((detail, i) => (
                 <li key={i} style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'flex-start' }}>
-                  <span style={{ color: '#ff5c8d', marginRight: '0.5rem', fontSize: '1rem' }}>✓</span>
-                  <span style={{ color: '#1c0a12', fontSize: '1rem' }}>{detail}</span>
+                  <span style={{ color: '#D4AF37', marginRight: '0.5rem', fontSize: '1rem' }}>✓</span>
+                  <span style={{ color: '#333', fontSize: '1rem' }}>{detail}</span>
                 </li>
               ))}
             </ul>
@@ -106,18 +104,18 @@ const Popup: React.FC<PopupProps> = ({ item, onClose }) => {
 
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>
-              <p style={{ fontWeight: '600', color: '#ff5c8d', marginBottom: '0.2rem' }}>
+              <p style={{ fontWeight: '600', color: '#D4AF37', marginBottom: '0.2rem' }}>
                 {isService ? 'Duration:' : 'Course Length:'}
               </p>
-              <p style={{ color: '#b7849a', fontSize: '1rem' }}>2-4 hours</p>
+              <p style={{ color: '#666', fontSize: '1rem' }}>2-4 hours</p>
             </div>
             <motion.button
-              whileHover={{ scale: 1.05, backgroundColor: '#ff8ab5' }}
+              whileHover={{ scale: 1.05, backgroundColor: '#b8972e' }}
               whileTap={{ scale: 0.95 }}
               style={{
                 padding: '0.75rem 1.5rem',
-                backgroundColor: '#ff5c8d',
-                color: '#ffffff',
+                backgroundColor: '#D4AF37',
+                color: 'white',
                 border: 'none',
                 borderRadius: '4px',
                 cursor: 'pointer',
@@ -125,9 +123,21 @@ const Popup: React.FC<PopupProps> = ({ item, onClose }) => {
                 transition: 'all 0.3s ease',
               }}
             >
-              {isService ? 'Book Now' : 'Enroll Now'}
+              {/* {isService ? 'Book Now' : 'Enroll Now'} */}
             </motion.button>
+
           </div>
+
+        <svg className="absolute bottom-4 right-4 h-12 w-48 opacity-0.2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="#D4AF37" strokeWidth="1" fill="none" />
+
+
+        </svg>
+
+        <svg className="absolute bottom-16 right-22 h-6 w-28 opacity-0.2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="#D4AF37" strokeWidth="1" fill="none" />
+        </svg>  
+
         </div>
       </motion.div>
     </motion.div>

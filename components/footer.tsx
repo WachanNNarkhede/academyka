@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 // @ts-expect-error TS2307
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -31,33 +32,37 @@ function Footer() {
   }, []);
 
   return (
-    <footer className="footer-container relative bg-[#1a0a12] text-white py-16 px-4 sm:px-8 h-50 overflow-hidden">
-      {/* Pink background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#ff4785]/10 to-transparent opacity-20 mt-16" />
+    <footer className="footer-container relative bg-gray-900 text-white py-16 px-4 sm:px-8 h-50 overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#D4AF37]/10 to-transparent opacity-20 mt-16" />
 
       <div className="footer-grid max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 z-10">
         {/* Logo/Branding */}
         <div className="flex flex-col items-center md:items-start" data-aos="fade-up">
-          <Link
-            href="/"
-            className="footer-logo text-3xl font-bold text-[#ff85a2] font-['Warnes',_cursive] tracking-wide relative"
-          >
-            Krunal&apos;s Academy
+          <Link href="/" className="footer-logo relative">
+            <Image
+              src="/1000134308-removebg-preview.png"
+              alt="Krunal's Academy Logo"
+              width={180}
+              height={60}
+              className="object-contain"
+              priority
+            />
           </Link>
-          <p className="mt-4 text-[#d4a8b8] text-center md:text-left">
+          <p className="mt-4 text-gray-300 text-center md:text-left">
             Empowering Beauty Professionals Since 2010
           </p>
         </div>
 
         {/* Navigation Links */}
         <div className="flex flex-col items-center md:items-start" data-aos="fade-up" data-aos-delay="200">
-          <h3 className="footer-heading text-xl font-bold text-[#ff85a2] mb-4 font-['Warnes',_cursive]">Explore</h3>
+          <h3 className="footer-heading text-xl font-bold text-[#D4AF37] mb-4 font-['Warnes',_cursive]">Explore</h3>
           <ul className="footer-nav-list space-y-2">
             {navLinks.map((link) => (
               <li key={link.path}>
                 <Link
                   href={link.path}
-                  className="text-[#d4a8b8] hover:text-[#ff4785] transition-all duration-300 hover:shadow-[0_0_10px_#ff85a2] px-2 py-1 rounded"
+                  className="text-gray-300 hover:text-[#D4AF37] transition-all duration-300 hover:shadow-[0_0_10px_#D4AF37] px-2 py-1 rounded"
                 >
                   {link.label}
                 </Link>
@@ -68,13 +73,13 @@ function Footer() {
 
         {/* Social Links */}
         <div className="flex flex-col items-center md:items-start" data-aos="fade-up" data-aos-delay="400">
-          <h3 className="footer-heading text-xl font-bold text-[#ff85a2] mb-4 font-['Warnes',_cursive]">Connect</h3>
+          <h3 className="footer-heading text-xl font-bold text-[#D4AF37] mb-4 font-['Warnes',_cursive]">Connect</h3>
           <ul className="footer-social-list space-y-2">
             {socialLinks.map((link) => (
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className="text-[#d4a8b8] hover:text-[#ff4785] transition-all duration-300 hover:shadow-[0_0_10px_#ff85a2] px-2 py-1 rounded"
+                  className="text-gray-300 hover:text-[#D4AF37] transition-all duration-300 hover:shadow-[0_0_10px_#D4AF37] px-2 py-1 rounded"
                 >
                   {link.label} ↗
                 </a>
@@ -85,41 +90,32 @@ function Footer() {
 
         {/* Contact & Newsletter */}
         <div className="flex flex-col items-center md:items-start" data-aos="fade-up" data-aos-delay="600">
-          <h3 className="footer-heading text-xl font-bold text-[#ff85a2] mb-4 font-['Warnes',_cursive]">Get in Touch</h3>
-          <p className="text-[#d4a8b8] mb-2">info@kunal.com</p>
-          <p className="text-[#d4a8b8] mb-4">45599 9966 5566</p>
-          <div className="footer-newsletter w-full max-w-xs">
-            <input
-              type="email"
-              placeholder="Join our newsletter"
-              className="w-full p-3 bg-[#2a121f] text-[#d4a8b8] border border-[#ff85a2]/30 rounded focus:outline-none focus:border-[#ff85a2] focus:shadow-[0_0_10px_#ff85a2] transition-all duration-300"
-            />
-            <button
-              className="mt-3 w-full p-3 bg-[#ff85a2] text-[#1a0a12] font-bold rounded hover:bg-[#ff4785] hover:shadow-[0_0_15px_#ff85a2] transition-all duration-300"
-              data-aos="pulse"
-              data-aos-delay="800"
-            >
-              Subscribe
-            </button>
-          </div>
+          <h3 className="footer-heading text-xl font-bold text-[#D4AF37] mb-4 font-['Warnes',_cursive]">Get in Touch</h3>
+          <p className="text-gray-300 mb-2">info@kunal.com</p>
+          <p className="text-gray-300 mb-4">45599 9966 5566</p>
         </div>
       </div>
 
       {/* Copyright */}
       <div
-        className="footer-copyright mt-12 text-center text-[#d4a8b8] border-t border-[#ff85a2]/20 pt-6"
+        className="footer-copyright mt-12 text-center text-gray-300 border-t border-[#D4AF37]/20 pt-6"
         data-aos="fade-in"
         data-aos-delay="1000"
       >
         <p>© {new Date().getFullYear()} Krunal&apos;s Academy. All rights reserved.</p>
       </div>
 
-      {/* Decorative pink glow */}
+      {/* Decorative glow */}
       <div
-        className="footer-glow absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full bg-[#ff4785]/10 blur-3xl"
+        className="footer-glow absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full bg-[#D4AF37]/10 blur-3xl"
         data-aos="fade-in"
         data-aos-delay="1200"
       />
+
+      {/* Decorative SVG */}
+      <svg className="absolute top-4 right-4 h-12 w-12 opacity-20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2l2 20h-4l2-20z" fill="#D4AF37" fillOpacity="0.3" />
+      </svg>
 
       {/* Scoped Inline Styles */}
       <style>{`
@@ -133,9 +129,19 @@ function Footer() {
           gap: 3rem; /* Matches gap-12 (12 * 0.25rem) */
         }
 
+        .footer-container .footer-logo img {
+          width: 180px;
+          height: 60px;
+        }
+
         @media (min-width: 768px) {
           .footer-container .footer-grid {
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(4, Rosetta Stone
+          }
+
+          .footer-container .footer-logo img {
+            width: 180px;
+            height: 60px;
           }
         }
 
@@ -149,29 +155,16 @@ function Footer() {
             gap: 2rem;
           }
 
-          .footer-container .footer-logo {
-            font-size: 1.8rem;
+          .footer-container .footer-logo img {
+            width: 150px;
+            height: 50px;
           }
 
           .footer-container .footer-heading {
             font-size: 1.25rem;
           }
 
-          .footer-container .text-[#d4a8b8] {
-            font-size: 0.9rem;
-          }
-
-          .footer-container .footer-newsletter {
-            max-width: 100%;
-          }
-
-          .footer-container .footer-newsletter input {
-            padding: 0.75rem;
-            font-size: 0.9rem;
-          }
-
-          .footer-container .footer-newsletter button {
-            padding: 0.75rem;
+          .footer-container .text-gray-300 {
             font-size: 0.9rem;
           }
 
@@ -215,25 +208,16 @@ function Footer() {
             gap: 1.5rem;
           }
 
-          .footer-container .footer-logo {
-            font-size: 1.5rem;
+          .footer-container .footer-logo img {
+            width: 120px;
+            height: 40px;
           }
 
           .footer-container .footer-heading {
             font-size: 1.125rem;
           }
 
-          .footer-container .text-[#d4a8b8] {
-            font-size: 0.85rem;
-          }
-
-          .footer-container .footer-newsletter input {
-            padding: 0.6rem;
-            font-size: 0.85rem;
-          }
-
-          .footer-container .footer-newsletter button {
-            padding: 0.6rem;
+          .footer-container .text-gray-300 {
             font-size: 0.85rem;
           }
 
