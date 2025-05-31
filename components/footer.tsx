@@ -46,7 +46,7 @@ function Footer() {
   }, []);
 
   return (
-    <footer className="relative bg-[#1A1A1A] text-white py-6 px-4 sm:px-6 lg:px-8 max-h-[00px] lg:max-h-[280px] overflow-hidden">
+    <footer className="relative bg-[#1A1A1A] text-white py-6 px-4 sm:px-6 lg:px-8 max-h-[390px] lg:max-h-[280px] overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#D4AF37]/10 to-transparent opacity-70" />
 
