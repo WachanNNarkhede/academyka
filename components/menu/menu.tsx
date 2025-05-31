@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ContactPopup from '@/components/elements/ContactPopup';
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaStar } from 'react-icons/fa';
 
 interface MenuLink {
   label: string;
@@ -263,19 +263,19 @@ const Menu: React.FC = () => {
       <div className="menu-footer mt-auto">
   <div className="menu-info flex flex-col sm:flex-row justify-between gap-4 sm:gap-6 md:gap-8 lg:gap-10 mt-4 sm:mt-6 md:mt-8 lg:mt-10 mb-4 sm:mb-6 md:mb-8 lg:mb-12" data-aos="fade-up" data-aos-delay="200" data-aos-easing="ease-in-out">
     <div className="menu-info-col mb-8 flex flex-wrap gap-2 sm:gap-4 md:gap-5 lg:gap-6 justify-end space-y-0 text-gray-900 text-xs sm:text-sm md:text-base lg:text-lg">
-      <a className="flex items-center hover:text-[#D4AF37] hover:shadow-[0_0_4px_#D4AF37] transition-all duration-300" href="#">
-        <FaTwitter className="text-[#00BCD4] mr-1 sm:mr-2 text-xs sm:text-sm md:text-base lg:text-lg" />
-        X ↗
+      <a className="flex items-center hover:text-[#D4AF37] hover:shadow-[0_0_4px_#D4AF37] transition-all duration-300" href="https://www.justdial.com/Pune/Krunals-Academy/020PXX20-XX20-230324040426-B1E4_BZDET">
+        <FaStar className="text-[#00BCD4] mr-1 sm:mr-2 text-xs sm:text-sm md:text-base lg:text-lg" />
+        Justdial ↗
       </a>
-      <a className="flex items-center hover:text-[#D4AF37] hover:shadow-[0_0_4px_#D4AF37] transition-all duration-300" href="#">
+      <a className="flex items-center hover:text-[#D4AF37] hover:shadow-[0_0_4px_#D4AF37] transition-all duration-300" href="https://www.instagram.com/krunals_academy/?hl=en">
         <FaInstagram className="text-[#00BCD4] mr-1 sm:mr-2 text-xs sm:text-sm md:text-base lg:text-lg" />
         Instagram ↗
       </a>
-      <a className="flex items-center hover:text-[#D4AF37] hover:shadow-[0_0_4px_#D4AF37] transition-all duration-300" href="#">
+      <a className="flex items-center hover:text-[#D4AF37] hover:shadow-[0_0_4px_#D4AF37] transition-all duration-300" href="https://www.linkedin.com/company/krunal-s-academy/?originalSubdomain=in">
         <FaLinkedin className="text-[#00BCD4] mr-1 sm:mr-2 text-xs sm:text-sm md:text-base lg:text-lg" />
         Linkedin ↗
       </a>
-      <a className="flex items-center hover:text-[#D4AF37] hover:shadow-[0_0_4px_#D4AF37] transition-all duration-300" href="#">
+      <a className="flex items-center hover:text-[#D4AF37] hover:shadow-[0_0_4px_#D4AF37] transition-all duration-300" href="https://www.facebook.com/krunalsacademy/">
         <FaFacebook className="text-[#00BCD4] mr-1 sm:mr-2 text-xs sm:text-sm md:text-base lg:text-lg" />
         Facebook ↗
       </a>
