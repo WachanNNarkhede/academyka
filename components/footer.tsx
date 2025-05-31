@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaHome, FaInfoCircle, FaHotel, FaImages, FaBook, FaTwitter, FaInstagram, FaLinkedin, FaFacebook, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaHome, FaInfoCircle, FaHotel, FaImages, FaBook, FaInstagram, FaLinkedin, FaFacebook, FaEnvelope, FaPhone, FaMapMarkerAlt, FaStar } from 'react-icons/fa';
 // @ts-expect-error TS2307
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -16,15 +16,19 @@ const navLinks = [
 ];
 
 const socialLinks = [
-  { label: 'X', href: '#', icon: <FaTwitter className="text-[#00BCD4] mr-1" /> },
-  { label: 'Instagram', href: '#', icon: <FaInstagram className="text-[#00BCD4] mr-1" /> },
-  { label: 'LinkedIn', href: '#', icon: <FaLinkedin className="text-[#00BCD4] mr-1" /> },
-  { label: 'Facebook', href: '#', icon: <FaFacebook className="text-[#00BCD4] mr-1" /> },
+{ 
+  label: 'Justdial', 
+  href: 'https://www.justdial.com/Pune/Krunals-Academy/020PXX20-XX20-230324040426-B1E4_BZDET', 
+  icon: <FaStar className="text-[#00BCD4] mr-1" /> 
+},
+  { label: 'Instagram', href: 'https://www.instagram.com/krunals_academy/?hl=en', icon: <FaInstagram className="text-[#00BCD4] mr-1" /> },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/krunal-s-academy/?originalSubdomain=in', icon: <FaLinkedin className="text-[#00BCD4] mr-1" /> },
+  { label: 'Facebook', href: 'https://www.facebook.com/krunalsacademy/', icon: <FaFacebook className="text-[#00BCD4] mr-1" /> },
 ];
 
 const contactInfo = [
-  { label: 'info@kunal.com', icon: <FaEnvelope className="text-[#00BCD4] mr-1" /> },
-  { label: '45599 9966 5566', icon: <FaPhone className="text-[#00BCD4] mr-1" /> },
+  { label: 'krunalgaikwad21@gmail.com', icon: <FaEnvelope className="text-[#00BCD4] mr-1" /> },
+  { label: '8637707077', icon: <FaPhone className="text-[#00BCD4] mr-1" /> },
   { 
     label: 'Location on Map', 
     icon: <FaMapMarkerAlt className="text-[#00BCD4] mr-1" />, 
@@ -46,7 +50,7 @@ function Footer() {
   }, []);
 
   return (
-    <footer className="relative bg-[#1A1A1A] text-white py-6 px-4 sm:px-6 lg:px-8 max-h-[390px] lg:max-h-[280px] overflow-hidden">
+    <footer className="relative bg-[#1A1A1A] text-white py-6 px-4 sm:px-6 lg:px-8 max-h-[400px] lg:max-h-[280px] overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#D4AF37]/10 to-transparent opacity-70" />
 

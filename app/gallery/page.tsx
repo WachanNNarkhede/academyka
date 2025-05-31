@@ -18,23 +18,22 @@ type GalleryItem = {
 };
 
 const galleryItems: GalleryItem[] = [
-  { id: 1, src: '/images/krunal_founder.jpg', alt: 'Classroom session', category: 'Academy', type: 'image' },
-  { id: 2, src: '/images/two.jpg', alt: 'Students working', category: 'Academy', type: 'image' },
-  { id: 3, src: '/images/three.jpg', alt: 'Hair styling demo', category: 'Hair', type: 'image' },
-  { id: 4, src: '/images/four.jpg', alt: 'Hair coloring', category: 'Hair', type: 'image' },
-  { id: 5, src: '/images/five.jpg', alt: 'Makeup application', category: 'Makeup', type: 'image' },
-  { id: 6, src: '/images/one.jpg', alt: 'Bridal makeup', category: 'Makeup', type: 'image' },
-  { id: 7, src: '/images/workshop.jpg', alt: 'Workshop event', category: 'Events', type: 'image' },
-  { id: 8, src: '/images/award.jpg', alt: 'Award ceremony', category: 'Events', type: 'image' },
-  { id: 9, src: '/images/skincare.jpg', alt: 'Skincare treatment', category: 'Skincare', type: 'image' },
-  { id: 10, src: '/images/facial.jpg', alt: 'Facial demo', category: 'Skincare', type: 'image' },
-  { id: 11, src: '/images/showcase.jpg', alt: 'Student showcase', category: 'Students', type: 'image' },
-  { id: 12, src: '/images/graduation.jpg', alt: 'Graduation day', category: 'Students', type: 'image' },
-  { id: 13, src: '/images/makeup_tutorial.jpg', alt: 'Makeup tutorial', category: 'Academy', type: 'image' },
-  { id: 14, src: '/images/hair_styling.jpg', alt: 'Hair styling session', category: 'Hair', type: 'image' },
-  { id: 15, src: '/images/skincare_demo.jpg', alt: 'Skincare routine demo', category: 'Skincare', type: 'image' },
-  { id: 16, src: '/images/bridal_process.jpg', alt: 'Bridal makeup process', category: 'Makeup', type: 'image' },
-  { id: 17, src: '/images/workshop_highlights.jpg', alt: 'Workshop highlights', category: 'Events', type: 'image' },
+  { id: 1, src: '/gallery/Gallary7.jpg', alt: 'Classroom session', category: 'Academy', type: 'image' },
+  { id: 2, src: '/gallery/Gallary12.webp', alt: 'Students working', category: 'Academy', type: 'image' },
+  { id: 3, src: '/gallery/Gallary15.webp', alt: 'Hair styling demo', category: 'Hair', type: 'image' }, // { id: 3, src: '/images/three.jpg', alt: 'Hair styling demo', category: 'Hair', type: 'image' },
+  { id: 4, src: '/gallery/Gallary8.jpg', alt: 'Hair coloring', category: 'Hair', type: 'image' },
+  { id: 5, src: '/gallery/Gallary4.jpg', alt: 'Makeup application', category: 'Makeup', type: 'image' },
+  { id: 6, src: '/gallery/Gallary5.jpg', alt: 'Bridal makeup', category: 'Makeup', type: 'image' },
+  { id: 7, src: '/gallery/Gallary9.webp', alt: 'Workshop event', category: 'Events', type: 'image' },
+  { id: 8, src: '/gallery/Gallary16.jpeg', alt: 'Award ceremony', category: 'Events', type: 'image' },
+  { id: 9, src: '/gallery/Gallary14.webp', alt: 'Skincare treatment', category: 'Skincare', type: 'image' },
+  { id: 10, src: '/gallery/Gallary1.jpg', alt: 'Facial demo', category: 'Skincare', type: 'image' },
+  { id: 11, src: '/gallery/Gallary2.jpg', alt: 'Student showcase', category: 'Students', type: 'image' },
+  { id: 12, src: '/KrunalandPooja.jpg', alt: 'Graduation day', category: 'Students', type: 'image' },
+  { id: 13, src: '/gallery/IMG_9465.jpg', alt: 'Makeup tutorial', category: 'Academy', type: 'image' },
+  { id: 14, src: '/gallery/Gallary13.webp', alt: 'Hair styling session', category: 'Hair', type: 'image' },
+  { id: 15, src: '/gallery/Gallary6.jpg', alt: 'Skincare routine demo', category: 'Skincare', type: 'image' },
+  { id: 16, src: '/gallery/Gallary10.webp', alt: 'Bridal makeup process', category: 'Makeup', type: 'image' },
 ];
 
 const Gallery = () => {
@@ -95,10 +94,10 @@ const Gallery = () => {
         </div>
         <div className="relative lg:mt-6 md:mt-7 sm:mt-6 mt-6 mb-28 h-[30vh] sm:h-[40vh] md:h-[45vh] lg:h-[50vh] text-center px-4 max-w-4xl mx-auto" data-aos="fade-up">
           <div className="absolute inset-0 bg-[#1A1A1A]/30 backdrop-blur-md rounded-3xl -z-10"></div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 lg:mt-10 md:mt-12 sm:mt-10 mt-20 text-white text-center">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 lg:mt-30 md:mt-12 sm:mt-10 mt-20 text-white text-center">
             Gallery
           </h1>
-          <p className="text-xl text-[#FFFFFF]/90 mt-10">
+          <p className="text-xl  text-[#FFFFFF]/90 mt-10">
             Explore our stunning collection of beauty transformations and academy highlights
           </p>
         </div>
