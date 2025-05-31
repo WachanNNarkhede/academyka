@@ -27,8 +27,8 @@ const socialLinks = [
 ];
 
 const contactInfo = [
-  { label: 'info@kunal.com', icon: <FaEnvelope className="text-[#00BCD4] mr-1" /> },
-  { label: '45599 9966 5566', icon: <FaPhone className="text-[#00BCD4] mr-1" /> },
+  { label: 'krunalgaikwad21@gmail.com', icon: <FaEnvelope className="text-[#00BCD4] mr-1" /> },
+  { label: '8637707077', icon: <FaPhone className="text-[#00BCD4] mr-1" /> },
   { 
     label: 'Location on Map', 
     icon: <FaMapMarkerAlt className="text-[#00BCD4] mr-1" />, 
