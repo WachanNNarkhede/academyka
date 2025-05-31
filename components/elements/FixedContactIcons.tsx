@@ -7,7 +7,7 @@ const FixedContactIcons = () => {
   const [mounted, setMounted] = useState(false);
   const [showNumber, setShowNumber] = useState(false);
   const phoneNumber = '+91 8637707077'; 
-  const formattedNumber = '+91 (863) 770 7077'; // Format it as you prefer
+  const formattedNumber = '+91 863 770 7077'; // Format it as you prefer
 
   useEffect(() => {
     setMounted(true);
