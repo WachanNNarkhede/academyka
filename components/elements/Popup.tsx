@@ -9,6 +9,7 @@ interface Item {
   desc: string;
   icon: React.ReactElement;
   details: string[];
+  courseLength?: string; // Optional course length for courses only
 }
 
 interface PopupProps {
@@ -103,12 +104,14 @@ const Popup: React.FC<PopupProps> = ({ item, onClose }) => {
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div>
-              <p style={{ fontWeight: '600', color: '#D4AF37', marginBottom: '0.2rem' }}>
-                {isService ? 'Duration:' : 'Course Length:'}
-              </p>
-              <p style={{ color: '#666', fontSize: '1rem' }}>2-4 hours</p>
-            </div>
+            {!isService && item.courseLength && (
+              <div>
+                <p style={{ fontWeight: '600', color: '#D4AF37', marginBottom: '0.2rem' }}>
+                  Course Length:
+                </p>
+                <p style={{ color: '#666', fontSize: '1rem' }}>{item.courseLength}</p>
+              </div>
+            )}
             <motion.button
               whileHover={{ scale: 1.05, backgroundColor: '#b8972e' }}
               whileTap={{ scale: 0.95 }}
@@ -123,21 +126,17 @@ const Popup: React.FC<PopupProps> = ({ item, onClose }) => {
                 transition: 'all 0.3s ease',
               }}
             >
-              {/* {isService ? 'Book Now' : 'Enroll Now'} */}
+              {isService ? '' : ''}
             </motion.button>
-
           </div>
 
-        <svg className="absolute bottom-4 right-4 h-12 w-48 opacity-0.2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" stroke="#D4AF37" strokeWidth="1" fill="none" />
+          <svg className="absolute bottom-4 right-4 h-12 w-48 opacity-0.2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="#D4AF37" strokeWidth="1" fill="none" />
+          </svg>
 
-
-        </svg>
-
-        <svg className="absolute bottom-16 right-22 h-6 w-28 opacity-0.2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" stroke="#D4AF37" strokeWidth="1" fill="none" />
-        </svg>  
-
+          <svg className="absolute bottom-16 right-22 h-6 w-28 opacity-0.2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="#D4AF37" strokeWidth="1" fill="none" />
+          </svg>
         </div>
       </motion.div>
     </motion.div>
