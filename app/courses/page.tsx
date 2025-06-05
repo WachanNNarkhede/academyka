@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 // @ts-expect-error TS2307
@@ -10,6 +10,7 @@ import Footer from '@/components/footer';
 
 const CoursesPage: React.FC = () => {
   const coursesSectionRef = useRef<HTMLElement>(null);
+  const [flippedCard, setFlippedCard] = useState<number | null>(null);
 
   useEffect(() => {
     AOS.init({
@@ -33,6 +34,7 @@ const CoursesPage: React.FC = () => {
       title: 'Female Hair Dressing Course',
       description: 'Master the art of hair design, from classic cuts to advanced treatments, blending theory and hands-on practice to create confident professionals.',
       image: '/images/fhc.jpg',
+      duration: '4 months',
       highlights: [
         'Comprehensive theory: hair science, tools, soft skills, and consultation',
         'Cutting techniques: basic, advanced, short, and fusion styles',
@@ -41,11 +43,22 @@ const CoursesPage: React.FC = () => {
         'Practical skills: sectioning, blow-drying, ironing, tongs, and head massage',
         'Chemical services: smoothening and rebonding',
       ],
+      specialAdditions: [
+        'Full Takeaway Kit',
+        'Unlimited Practice',
+        '100+ Models',
+        'ISO Registered Certificate',
+        'Graduation Day Programme',
+        '100% Job Guarantee',
+        'External Exposure',
+        'On Floor Experience',
+      ],
     },
     {
       title: 'Male Barbering Course',
       description: 'Master modern and classic barbering skills, from scissor and clipper techniques to fades, beard styling, coloring, and spa treatments.',
       image: '/imagegallary.jpg',
+      duration: '2 months',
       highlights: [
         'Tool handling, scissor and clipper techniques',
         'Fade haircuts: high, medium, low, razor, and mullet styles',
@@ -55,11 +68,22 @@ const CoursesPage: React.FC = () => {
         'Head massage, face cleanup, and spa applications',
         'Styling with blow drying, ironing, and curling techniques',
       ],
+      specialAdditions: [
+        'Full Takeaway Kit',
+        'Unlimited Practice',
+        '100+ Models',
+        'ISO Registered Certificate',
+        'Graduation Day Programme',
+        '100% Job Guarantee',
+        'External Exposure',
+        'On Floor Experience',
+      ],
     },
     {
       title: 'Advanced Skin and Beauty Therapy Course',
       description: 'Gain in-depth knowledge and hands-on expertise in skincare, waxing, facial therapies, and body treatments using advanced tools and professional techniques.',
       image: '/images/skin.jpg',
+      duration: '4 months',
       highlights: [
         'Comprehensive theory: skin types, anatomy, hygiene, cosmetic chemistry, and facial machines',
         'Basic to advanced facial techniques including cleanup, deep cleansing, and hydra facial',
@@ -69,11 +93,22 @@ const CoursesPage: React.FC = () => {
         'Manicure and pedicure: basic, anti-tan, paraffin wax, and heel peel treatments',
         'Body care: back massage, body polishing, and combined machine-based therapies',
       ],
+      specialAdditions: [
+        'Full Takeaway Kit',
+        'Unlimited Practice',
+        '100+ Models',
+        'ISO Registered Certificate',
+        'Graduation Day Programme',
+        '100% Job Guarantee',
+        'External Exposure',
+        'On Floor Experience',
+      ],
     },
     {
       title: 'Nail Art Course',
       description: 'Master the art of nail design from the fundamentals to advanced techniques, including gel extensions, 3D designs, and artistic finishes like chrome, ombré, and marble art.',
       image: '/images/nailsart.jpg',
+      duration: '25 days',
       highlights: [
         'Introduction to tools, brushes, and nail anatomy',
         'Types, shapes of nails, and client consultation basics',
@@ -82,11 +117,22 @@ const CoursesPage: React.FC = () => {
         'Creative techniques: chrome, glitter, marble, ombré, and more',
         'Freehand painting, foil work, spider gel, blooming ink, and seasonal designs',
       ],
+      specialAdditions: [
+        'Full Takeaway Kit',
+        'Unlimited Practice',
+        '100+ Models',
+        'ISO Registered Certificate',
+        'Graduation Day Programme',
+        '100% Job Guarantee',
+        'External Exposure',
+        'On Floor Experience',
+      ],
     },
     {
       title: 'Makeup Artistry Course',
       description: 'Become a certified makeup artist by mastering a wide range of techniques for bridal, editorial, and high-definition makeup, tailored for all skin types and occasions.',
       image: '/images/one.jpg',
+      duration: '45 days',
       highlights: [
         'Foundation knowledge: skin analysis, color theory, and product knowledge',
         'Day, evening, party, and bridal makeup looks',
@@ -97,7 +143,17 @@ const CoursesPage: React.FC = () => {
         'Makeup for photography, fashion shows, and media',
         'Skin prep, hygiene, tool sanitization, and client consultation',
       ],
-    }
+      specialAdditions: [
+        'Full Takeaway Kit',
+        'Unlimited Practice',
+        '100+ Models',
+        'ISO Registered Certificate',
+        'Graduation Day Programme',
+        '100% Job Guarantee',
+        'External Exposure',
+        'On Floor Experience',
+      ],
+    },
   ];
 
   const practicalSkills = [
@@ -128,6 +184,10 @@ const CoursesPage: React.FC = () => {
 
   const scrollToCourses = () => {
     coursesSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleFlip = (index: number) => {
+    setFlippedCard(flippedCard === index ? null : index);
   };
 
   return (
@@ -163,7 +223,7 @@ const CoursesPage: React.FC = () => {
           </motion.button>
         </div>
         <svg className="absolute top-10 left-10 w-16 h-16 text-[#00BCD4] opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke="currentColor" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          <path stroke="currentColor" strokeWidth="2" d="M12 6.253v13m0-13C10.891 5.477 9.306 5 7.5 5S4.109 7.477 4.109 11.253v11.494C9.306 20.477 10.891 21 12.5 21s3.194-.523 4.891-1.747V7.753C15.694 8.977 14.109 9.5 12.5 9.5S9.306 8.977 7.609 7.753" />
         </svg>
       </section>
       <section ref={coursesSectionRef} className="py-32 px-4 sm:px-6 lg:px-8 bg-[#F9F9F9]">
@@ -178,38 +238,88 @@ const CoursesPage: React.FC = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {courses.map((course, index) => (
-              <motion.div
+              <div
                 key={index}
+                className="relative perspective-1000"
+                style={{ height: '500px' }}
                 data-aos="fade-up"
                 data-aos-delay={200 + index * 100}
-                whileHover={{ y: -10, boxShadow: '0 12px 24px rgba(0, 0, 0, 0.15)' }}
-                className="bg-[#FFFFFF] rounded-2xl overflow-hidden shadow-lg border border-[#E8E8E8] flex flex-col"
               >
-                <div className="relative h-60">
-                  <Image
-                    src={course.image}
-                    alt={course.title}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/60 to-transparent"></div>
-                </div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-semibold text-[#D4AF37] mb-3">{course.title}</h3>
-                  <p className="text-[#666666] mb-4 flex-grow">{course.description}</p>
-                  <div className="border-t border-[#E8E8E8] pt-4">
-                    <h4 className="text-md font-medium text-[#D4AF37] mb-2">What You&apos;ll Learn:</h4>
-                    <ul className="space-y-2">
-                      {course.highlights.map((highlight, i) => (
-                        <li key={i} className="flex items-start">
-                          <span className="text-[#00BCD4] mr-2">•</span>
-                          <span className="text-[#666666] text-sm">{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
+                <motion.div
+                  animate={{ rotateY: flippedCard === index ? 180 : 0 }}
+                  transition={{ duration: 0.6, ease: [0.68, -0.55, 0.265, 1.55] }}
+                  className="relative w-full h-full rounded-2xl shadow-lg border border-[#E8E8E8] bg-[#FFFFFF]"
+                  style={{ transformStyle: 'preserve-3d' }}
+                  whileHover={{ y: -10, scale: 1.02, boxShadow: '0 12px 24px rgba(0, 0, 0, 0.2)' }}
+                >
+                  {/* Front Side */}
+                  <div className="absolute inset-0 backface-hidden flex flex-col">
+                    <div className="relative h-60">
+                      <Image
+                        src={course.image}
+                        alt={course.title}
+                        fill
+                        className="object-cover rounded-t-2xl"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/70 to-transparent rounded-t-2xl"></div>
+                    </div>
+                    <div className="p-6 flex flex-col flex-grow items-center justify-between">
+                      <h3 className="text-xl font-semibold text-[#D4AF37] mb-3 text-center">{course.title}</h3>
+                      <p className="text-[#666666] mb-4 text-sm text-center">{course.description}</p>
+                      <motion.button
+                        whileHover={{ scale: 1.1, backgroundColor: '#B8972F', boxShadow: '0 4px 12px rgba(212, 175, 55, 0.4)' }}
+                        whileTap={{ scale: 0.9 }}
+                        className="bg-[#D4AF37] text-[#FFFFFF] font-semibold py-2 px-6 rounded-full shadow-md transition-all duration-300"
+                        onClick={() => handleFlip(index)}
+                      >
+                        Explore Course
+                      </motion.button>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                  {/* Back Side */}
+                  <div
+                    className="absolute inset-0 backface-hidden flex flex-col p-6 overflow-y-auto rounded-2xl bg-[#FFFFFF]"
+                    style={{ transform: 'rotateY(180deg)' }}
+                  >
+                    <h3 className="text-xl font-semibold text-[#D4AF37] mb-3">{course.title}</h3>
+                    <p className="text-[#666666] mb-4 text-sm">{course.description}</p>
+                    <div className="mb-4">
+                      <h4 className="text-md font-medium text-[#D4AF37] mb-2">Duration:</h4>
+                      <p className="text-[#666666] text-sm">{course.duration}</p>
+                    </div>
+                    <div className="mb-4">
+                      <h4 className="text-md font-medium text-[#D4AF37] mb-2">What You&apos;ll Learn:</h4>
+                      <ul className="space-y-2">
+                        {course.highlights.map((highlight, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="text-[#00BCD4] mr-2">•</span>
+                            <span className="text-[#666666] text-sm">{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="mb-4">
+                      <h4 className="text-md font-medium text-[#D4AF37] mb-2">Special Additions:</h4>
+                      <ul className="space-y-2">
+                        {course.specialAdditions.map((addition, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="text-[#00BCD4] mr-2">✓</span>
+                            <span className="text-[#666666] text-sm">{addition}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <motion.button
+                      whileHover={{ scale: 1.1, backgroundColor: '#B8972F', boxShadow: '0 4px 12px rgba(212, 175, 55, 0.4)' }}
+                      whileTap={{ scale: 0.9 }}
+                      className="bg-[#D4AF37] text-[#FFFFFF] font-semibold py-2 px-6 rounded-full shadow-md self-start mt-auto"
+                      onClick={() => handleFlip(index)}
+                    >
+                      Back
+                    </motion.button>
+                  </div>
+                </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -217,9 +327,9 @@ const CoursesPage: React.FC = () => {
           <path stroke="currentColor" strokeWidth="2" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
         </svg>
       </section>
-      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-[#FFFFFF]">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#FFFFFF]">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16" data-aos="fade-up" data-aos-delay="200">
+          <div className="text-center mb-16" data-aos="fade-up" data-aos-delay="0">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#D4AF37]">
               Comprehensive Skill Development
             </h2>
@@ -230,7 +340,7 @@ const CoursesPage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-12">
             <motion.div
               data-aos="fade-right"
-              data-aos-delay="300"
+              data-aos-delay="0"
               whileHover={{ scale: 1.02 }}
               className="bg-[#F9F9F9] p-8 rounded-2xl shadow-lg border border-[#E8E8E8]"
             >
@@ -246,7 +356,7 @@ const CoursesPage: React.FC = () => {
             </motion.div>
             <motion.div
               data-aos="fade-left"
-              data-aos-delay="300"
+              data-aos-delay="0"
               whileHover={{ scale: 1.02 }}
               className="bg-[#F9F9F9] p-8 rounded-2xl shadow-lg border border-[#E8E8E8]"
             >
@@ -260,9 +370,6 @@ const CoursesPage: React.FC = () => {
                 ))}
               </ul>
             </motion.div>
-          </div>
-          <div className="mt-12 text-center" data-aos="fade-up" data-aos-delay="400">
-           
           </div>
         </div>
         <svg className="absolute top-10 left-10 w-14 h-14 text-[#00BCD4] opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
