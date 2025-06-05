@@ -15,6 +15,7 @@ interface Item {
   desc: string;
   icon: React.ReactElement;
   details: string[];
+  courseLength?: string; // Optional course length for courses only
 }
 
 const Makeupservice = () => {
@@ -43,6 +44,7 @@ const Makeupservice = () => {
         'Practical skills: sectioning, blow-drying, ironing, tongs, and head massage',
         'Chemical services: smoothening and rebonding',
       ],
+      courseLength: '4 months',
     },
     {
       title: 'Male Barbering Course',
@@ -57,6 +59,7 @@ const Makeupservice = () => {
         'Head massage, face cleanup, and spa applications',
         'Styling with blow drying, ironing, and curling techniques',
       ],
+      courseLength: '2 months',
     },
     {
       title: 'Nail Art Course',
@@ -70,6 +73,7 @@ const Makeupservice = () => {
         'Creative techniques: chrome, glitter, marble, ombré, and more',
         'Freehand painting, foil work, spider gel, blooming ink, and seasonal designs',
       ],
+      courseLength: '25 days',
     },
     {
       title: 'Advanced Skin and Beauty Therapy Course',
@@ -82,6 +86,21 @@ const Makeupservice = () => {
         'Advanced skin treatments: anti-acne, anti-aging, detan, brightening, and hydrating facials',
         'Mask therapies: thermoherb, rubber, biological, paraffin, setting & non-setting masks',
       ],
+      courseLength: '4 months',
+    },
+    {
+      title: 'Makeup Course',
+      desc: 'Learn professional makeup techniques for various occasions, mastering application, color theory, and creative looks.',
+      icon: <GiLipstick />,
+      details: [
+        'Fundamentals of makeup application and skin preparation',
+        'Color theory and product knowledge',
+        'Day, evening, bridal, and editorial makeup techniques',
+        'Contouring, highlighting, and blending skills',
+        'False lash application and eye makeup artistry',
+        'Client consultation and personalized look creation',
+      ],
+      courseLength: '45 days',
     },
   ];
 
