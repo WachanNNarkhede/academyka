@@ -13,7 +13,7 @@ export default function TestimonialsScroll() {
   const testimonials = [
     {
       name: 'Amruta',
-      role: 'Customer',
+      role: 'Client',
       company: "Krunal's Academy",
       image: '/male.png',
       quote:
@@ -22,7 +22,7 @@ export default function TestimonialsScroll() {
     },
     {
       name: 'SHUBHAM DANGAT',
-      role: 'Student',
+      role: 'Client',
       company: "Krunal's Academy",
       image: '/male.png',
       quote:
@@ -31,7 +31,7 @@ export default function TestimonialsScroll() {
     },
     {
       name: 'Sayali',
-      role: 'Customer',
+      role: 'Client',
       company: "Krunal's Academy",
       image: '/male.png',
       quote:
@@ -40,7 +40,7 @@ export default function TestimonialsScroll() {
     },
     {
       name: 'Pooja Dake',
-      role: 'Customer',
+      role: 'Client',
       company: "Krunal's Academy",
       image: '/male.png',
       quote:
