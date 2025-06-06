@@ -324,7 +324,7 @@ const Menu: React.FC = () => {
                 </a>
               </div>
               <div className="text-center text-gray-700 text-base">
-                <div>Krunal's Academy</div>
+                <div>Krunal&apos;s Academy</div>
                 <div>4th Floor, Krushkunj Building, Ghole Road, Above Union Bank, Shivaji Nagar, Pune (Municipal Corporation Pune City, Pune -411004, India</div>
                 <div>+91-1234567890</div>
               </div>
