@@ -25,7 +25,7 @@ const AboutUsSection = () => {
               />
             </div>
             <div className="absolute w-18 sm:w-18 md:w-25 -bottom-4 left-70 sm:left-150 md:left-95 sm:-right-4 md:-bottom-6 md:-right-6 bg-[#D4AF37] text-white px-4 py-2 md:px-6 md:py-3 rounded-lg shadow-lg text-sm md:text-base">
-              <span className="font-bold">Since 2015</span>
+              <span className="font-bold">Since 2009</span>
             </div>
             {/* Subtle SVG Decoration */}
             <svg className="absolute -top-4 -left-4 h-12 w-12 opacity-30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
