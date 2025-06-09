@@ -31,7 +31,7 @@ const galleryItems: GalleryItem[] = [
   { id: 10, src: '/gallery/Gallary1.jpg', alt: 'Facial demo', category: 'Skincare', type: 'image' },
   { id: 11, src: '/gallery/Gallary2.jpg', alt: 'Student showcase', category: 'Students', type: 'image' },
   { id: 12, src: '/KrunalandPooja.jpg', alt: 'Graduation day', category: 'Students', type: 'image' },
-  { id: 13, src: '/gallery/IMG_9465.jpg', alt: 'Makeup tutorial', category: 'Academy', type: 'image' },
+  { id: 13, src: '/gallery/IMG_9465.JPG', alt: 'Makeup tutorial', category: 'Academy', type: 'image' },
   { id: 14, src: '/gallery/Gallary13.webp', alt: 'Hair styling session', category: 'Hair', type: 'image' },
   { id: 15, src: '/gallery/Gallary6.jpg', alt: 'Skincare routine demo', category: 'Skincare', type: 'image' },
   { id: 16, src: '/gallery/Gallary10.webp', alt: 'Bridal makeup process', category: 'Makeup', type: 'image' },
