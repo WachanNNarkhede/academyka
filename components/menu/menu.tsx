@@ -231,6 +231,17 @@ const Menu: React.FC = () => {
         className="fixed inset-0 z-40 bg-gradient-to-br from-white/95 via-[#f7f6f2]/95 to-[#f1e9d7]/95 backdrop-blur-2xl flex flex-col md:flex-row transition-all duration-500"
         style={{ visibility: 'hidden', opacity: 0 }}
       >
+        
+    <Image
+          src="/1000134308-removebg-preview.png"
+          alt="Watermark"
+          width={650}
+          height={650}
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-10 pointer-events-none w-52 sm:w-50 md:w-62 h-auto z-0"
+          priority
+        />
+
+
         {/* Overlay Close Button */}
         <div className="absolute top-6 right-9 z-50">
           <MenuToggleButton
